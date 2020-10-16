@@ -7,6 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://biolysthome.netlify.app/categories/ggplot2/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Internet Searches and Wikipedia Hits</title>
+      <link>https://biolysthome.netlify.app/post/2020-10-16-internet-searches-and-wikipedia-hits/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://biolysthome.netlify.app/post/2020-10-16-internet-searches-and-wikipedia-hits/</guid>
+      <description>IntroductionInternet search volume and web page hits can provide interesting insights into the collective unconscious (read the minds or bored 20 - somethings on furlough)
+This is nice quick introduction to two straight forward packages, googletrendsR and wikipediatrend.
+There will also be a cursory flirt with Facebook’s Prophet, a forecasting package.
+</description>
+    </item>
+    
+    <item>
       <title>Open Coroporates Test</title>
       <link>https://biolysthome.netlify.app/post/2020-10-16-open-coroporates-test/</link>
       <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
@@ -14,7 +26,7 @@
       <guid>https://biolysthome.netlify.app/post/2020-10-16-open-coroporates-test/</guid>
       <description>IntroductionAs per application requirements I will be analysing the data set in accordance withprescribed guidelines.
 There are three major points to adhere to:
-div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}Identify 3-5 interesting facts from the data setIdentify at least 3 of the errors within the data setExplain rationale and methodology via code chunks and prose.In regards to the layout of this document.</description>
+div.grey { background-color:#3d4849; border-radius: 5px; padding: 20px;}Identify 3-5 interesting facts from the data setIdentify at least 3 of the errors within the data setExplain rationale and methodology via code chunks and prose.Tabset is incompatible with Hugo, so this is one LONG scroll.</description>
     </item>
     
   </channel>

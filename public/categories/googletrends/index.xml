@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>googletrends on A Biologist Wandering in the World of Analytics</title>
+    <link>https://biolysthome.netlify.app/categories/googletrends/</link>
+    <description>Recent content in googletrends on A Biologist Wandering in the World of Analytics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://biolysthome.netlify.app/categories/googletrends/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Internet Searches and Wikipedia Hits</title>
+      <link>https://biolysthome.netlify.app/post/2020-10-16-internet-searches-and-wikipedia-hits/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://biolysthome.netlify.app/post/2020-10-16-internet-searches-and-wikipedia-hits/</guid>
+      <description>IntroductionInternet search volume and web page hits can provide interesting insights into the collective unconscious (read the minds or bored 20 - somethings on furlough)
+This is nice quick introduction to two straight forward packages, googletrendsR and wikipediatrend.
+There will also be a cursory flirt with Facebook’s Prophet, a forecasting package.
+</description>
+    </item>
+    
+  </channel>
+</rss>

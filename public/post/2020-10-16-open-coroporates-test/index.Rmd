@@ -27,9 +27,9 @@ prescribed guidelines.
 There are three major points to adhere to:
 
 <style>
-div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+div.grey { background-color:#3d4849; border-radius: 5px; padding: 20px;}
 </style>
-<div class = "blue">
+<div class = "grey">
 
 - Identify 3-5 interesting facts from the data set
 - Identify at least 3 of the errors within the data set
@@ -39,21 +39,7 @@ div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
 
 
 ***
-
-In regards to the layout of this document. 
-The major headings in the **top left** will allow you to nagivate the documents. 
-The Analysis part of this document has been nested in  pages that can be accesed
-via tabs. 
-
-Please scroll down to the Analysis section, go through all tabs THEN scroll down to the 
-bottom where you will find the conclusion. 
-
-
-This will mean a little bit of scrolling up and down when reading through the Analysis section.
-
-
-To **SHOW** all codes chunks please find code menu button on the top right and select
-from the resulting drop down menu
+Tabset is incompatible with Hugo, so this is one LONG scroll. 
 
 
 ***
@@ -107,7 +93,7 @@ To remove these columns we will use a bit of base R rather than tidyverse
 officer <- officer[, !names(officer) %in% c("start_date","end_date","occupation",'nationality')]
 
 kable(officer) %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
+  kable_styling(bootstrap_options = c( "hover", "condensed")) %>%
   scroll_box(width = "800px", height = "400px")
 ```
 
@@ -605,28 +591,27 @@ coords_vector_long <- c(-4.480503,-4.478088,-4.445068,-4.542573,-4.459075,-4.395
 then both vectors were added to the dataframe to give us a final dataframe with postcodes, counts, longtitude and latitude 
 
 ```{r}
-#postcode_coords <- cbind(postcode_coords,coords_vector_lat,coords_vector_long)
+postcode_coords <- cbind(postcode_coords,coords_vector_lat,coords_vector_long)
 ```
 
 Then the data were plotted using `ggplot` and `ggrepel`
 
-Due to issues ggplot2 the map was generated in another script saved and then inserted as an image
-using the exact code found below. 
+
 
 ```{r}
-# library(ggrepel)
-# gg <- ggplot(postcode_coords,aes(x =coords_vector_long , y = coords_vector_lat,size=n,col = n))+
-#   geom_point()+
-#   borders("world",regions ="Isle Of Man",fill = "grey",alpha =0.1,colour = "black")+
-#   geom_text_repel(aes(label = District),size=4, col ="steelblue")+
-#   theme_void()+
-#   scale_color_viridis_c()+
-#   labs(title = "Poor Man's Map of the Isle of Man",
-#        subtitle = " Centre's correspond to approximate centres of postcode distrct",
-#        col = "Count of Addresses",
-#        size = "Size of Centre")
-#   
-# gg
+library(ggrepel)
+gg <- ggplot(postcode_coords,aes(x =coords_vector_long , y = coords_vector_lat,size=n,col = n))+
+  geom_point()+
+  borders("world",regions ="Isle Of Man",fill = "grey",alpha =0.1,colour = "black")+
+  geom_text_repel(aes(label = District),size=4, col ="steelblue")+
+  theme_void()+
+  scale_color_viridis_c()+
+  labs(title = "Poor Man's Map of the Isle of Man",
+       subtitle = " Centre's correspond to approximate centres of postcode distrct",
+       col = "Count of Addresses",
+       size = "Size of Centre")
+
+gg
 
 ```
 

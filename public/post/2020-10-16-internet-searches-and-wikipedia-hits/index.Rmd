@@ -1,0 +1,101 @@
+---
+title: Internet Searches and Wikipedia Hits
+author: ''
+date: '2020-10-16'
+slug: []
+categories:
+  - R
+  - ggplot2
+  - prophet
+  - googletrends
+tags:
+  - analysis
+  - R Markdown
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r,echo=FALSE,warning=FALSE,message=FALSE}
+```
+
+
+## Introduction 
+Internet search volume and web page hits can provide interesting insights into the collective unconscious (read the minds of bored 20 - somethings on furlough) 
+
+
+This is nice quick introduction to two straight forward packages, `googletrendsR` and `wikipediatrend`. 
+
+There will also be a cursory flirt with Facebook's `Prophet`, a forecasting package.
+
+So lets call in our libraries 
+```{r,warning=FALSE,message=FALSE}
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+options(scipen = 999)
+library(gtrendsR)
+library(tidyverse)
+library(ggcharts)
+library(ggsci)
+library(ggthemes)
+```
+
+
+## Google Trends
+
+The query requires a few different arguments which we can define before hand.
+The `+` between the terms in the keyword vector ensures that those words appear in that order. 
+
+```{r}
+#define the keywords
+keywords <- c('Artificial+neural+network')
+# Choose Location  --------------------------------------------------------
+country=c('GB')
+# Define Time Fram -------------------------------------------------
+time_frame = ("2014-01-01 2020-05-30")
+#set channels 
+channel='web'
+```
+
+Here we have the final query, which will return us a `list` of `dataframes`
+```{r}
+trends  <-  gtrends(keywords, gprop = channel, geo = 'GB', time = time_frame )
+str(trends)
+```
+
+
+
+We can access the elements of the list we would like and assign them to a variable. I have creatively named them as seen below. 
+
+The city data seems quite suspect to me and is undoubtedly a case of search locations being grouped to the nearest
+'city'
+```{r}
+
+time_trend <- trends$interest_over_time
+
+city <- trends$interest_by_city
+
+```
+
+
+### Process and plot
+
+```{r}
+# A little bit of cleaning ------------------------------------------------
+library(forcats)
+city <- na.omit(city)
+# Lets take a look --------------------------------------------------------
+ggplot(city, aes( reorder(location, hits), hits)) +
+geom_col(fill ="#E69F00", show.legend = FALSE) +
+coord_flip() +
+labs(title = 'Search Results By Approx Location',
+        y = 'Relative Interest',
+        x ='Approx Locations',
+       caption = Sys.Date()) +
+theme_hermit()
+
+```
+

@@ -16,5 +16,17 @@
 Header2head(mtcars)## mpg cyl disp hp drat wt qsec vs am gear carb## Mazda RX4 21.0 6 160 110 3.90 2.620 16.46 0 1 4 4## Mazda RX4 Wag 21.0 6 160 110 3.90 2.875 17.02 0 1 4 4## Datsun 710 22.8 4 108 93 3.85 2.320 18.61 1 1 4 1## Hornet 4 Drive 21.4 6 258 110 3.</description>
     </item>
     
+    <item>
+      <title>Internet Searches and Wikipedia Hits</title>
+      <link>https://biolysthome.netlify.app/post/2020-10-16-internet-searches-and-wikipedia-hits/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://biolysthome.netlify.app/post/2020-10-16-internet-searches-and-wikipedia-hits/</guid>
+      <description>IntroductionInternet search volume and web page hits can provide interesting insights into the collective unconscious (read the minds or bored 20 - somethings on furlough)
+This is nice quick introduction to two straight forward packages, googletrendsR and wikipediatrend.
+There will also be a cursory flirt with Facebook’s Prophet, a forecasting package.
+</description>
+    </item>
+    
   </channel>
 </rss>

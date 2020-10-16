@@ -17,6 +17,17 @@ Header2head(mtcars)## mpg cyl disp hp drat wt qsec vs am gear carb## Mazda RX
     </item>
     
     <item>
+      <title>Open Coroporates Test</title>
+      <link>https://biolysthome.netlify.app/post/2020-10-16-open-coroporates-test/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://biolysthome.netlify.app/post/2020-10-16-open-coroporates-test/</guid>
+      <description>IntroductionAs per application requirements I will be analysing the data set in accordance withprescribed guidelines.
+There are three major points to adhere to:
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}Identify 3-5 interesting facts from the data setIdentify at least 3 of the errors within the data setExplain rationale and methodology via code chunks and prose.In regards to the layout of this document.</description>
+    </item>
+    
+    <item>
       <title>Creating a New Theme</title>
       <link>https://biolysthome.netlify.app/posts/creating-a-new-theme/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>

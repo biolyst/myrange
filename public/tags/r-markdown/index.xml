@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R Markdown on A Biologist Wandering in the World of Analytics</title>
+    <link>https://biolysthome.netlify.app/tags/r-markdown/</link>
+    <description>Recent content in R Markdown on A Biologist Wandering in the World of Analytics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://biolysthome.netlify.app/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Open Coroporates Test</title>
+      <link>https://biolysthome.netlify.app/post/2020-10-16-open-coroporates-test/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://biolysthome.netlify.app/post/2020-10-16-open-coroporates-test/</guid>
+      <description>IntroductionAs per application requirements I will be analysing the data set in accordance withprescribed guidelines.
+There are three major points to adhere to:
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}Identify 3-5 interesting facts from the data setIdentify at least 3 of the errors within the data setExplain rationale and methodology via code chunks and prose.In regards to the layout of this document.</description>
+    </item>
+    
+  </channel>
+</rss>

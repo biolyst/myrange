@@ -13,7 +13,22 @@
   </url>
   
   <url>
+    <loc>https://biolysthome.netlify.app/tags/analysis/</loc>
+    <lastmod>2020-10-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://biolysthome.netlify.app/categories/</loc>
+    <lastmod>2020-10-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/categories/ggplot2/</loc>
+    <lastmod>2020-10-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/post/2020-10-16-open-coroporates-test/</loc>
     <lastmod>2020-10-16T00:00:00+00:00</lastmod>
   </url>
   
@@ -24,6 +39,16 @@
   
   <url>
     <loc>https://biolysthome.netlify.app/categories/r/</loc>
+    <lastmod>2020-10-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/tags/r-markdown/</loc>
+    <lastmod>2020-10-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/tags/</loc>
     <lastmod>2020-10-16T00:00:00+00:00</lastmod>
   </url>
   
@@ -39,11 +64,6 @@
   
   <url>
     <loc>https://biolysthome.netlify.app/posts/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/tags/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url>
   

@@ -1,0 +1,20 @@
+---
+title: Almost Done
+author: ''
+date: '2020-10-16'
+slug: []
+categories:
+  - R
+tags: []
+---
+
+## Header 1
+
+This is some text
+
+### Header2
+
+```{r}
+head(mtcars)
+plot(mtcars)
+```

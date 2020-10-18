@@ -17,7 +17,171 @@ tags:
 
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>Internet search volume and web page hits can provide interesting insights into the collective unconscious (read the minds or bored 20 - somethings on furlough)</p>
+<p>Internet search volume and web page hits can provide interesting insights into the collective unconscious (read the minds of bored 20 - somethings on furlough)</p>
 <p>This is nice quick introduction to two straight forward packages, <code>googletrendsR</code> and <code>wikipediatrend</code>.</p>
 <p>There will also be a cursory flirt with Facebook’s <code>Prophet</code>, a forecasting package.</p>
+<p>So lets call in our libraries</p>
+<pre class="r"><code>#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+options(scipen = 999)
+library(gtrendsR)
+library(tidyverse)
+library(ggcharts)
+library(ggsci)
+library(ggthemes)</code></pre>
+</div>
+<div id="google-trends" class="section level2">
+<h2>Google Trends</h2>
+<p>The query requires a few different arguments which we can define before hand.
+The <code>+</code> between the terms in the keyword vector ensures that those words appear in that order.</p>
+<pre class="r"><code>#define the keywords
+keywords &lt;- c(&#39;Artificial+neural+network&#39;)
+# Choose Location  --------------------------------------------------------
+country=c(&#39;GB&#39;)
+# Define Time Fram -------------------------------------------------
+time_frame = (&quot;2014-01-01 2020-05-30&quot;)
+#set channels 
+channel=&#39;web&#39;</code></pre>
+<p>Here we have the final query, which will return us a <code>list</code> of <code>dataframes</code></p>
+<pre class="r"><code>trends  &lt;-  gtrends(keywords, gprop = channel, geo = &#39;GB&#39;, time = time_frame )
+str(trends)</code></pre>
+<pre><code>## List of 7
+##  $ interest_over_time :&#39;data.frame&#39;: 77 obs. of  7 variables:
+##   ..$ date    : POSIXct[1:77], format: &quot;2014-01-01&quot; &quot;2014-02-01&quot; ...
+##   ..$ hits    : int [1:77] 87 90 90 82 83 81 83 84 85 86 ...
+##   ..$ keyword : chr [1:77] &quot;Artificial+neural+network&quot; &quot;Artificial+neural+network&quot; &quot;Artificial+neural+network&quot; &quot;Artificial+neural+network&quot; ...
+##   ..$ geo     : chr [1:77] &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; ...
+##   ..$ time    : chr [1:77] &quot;2014-01-01 2020-05-30&quot; &quot;2014-01-01 2020-05-30&quot; &quot;2014-01-01 2020-05-30&quot; &quot;2014-01-01 2020-05-30&quot; ...
+##   ..$ gprop   : chr [1:77] &quot;web&quot; &quot;web&quot; &quot;web&quot; &quot;web&quot; ...
+##   ..$ category: int [1:77] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ interest_by_country: NULL
+##  $ interest_by_region :&#39;data.frame&#39;: 4 obs. of  5 variables:
+##   ..$ location: chr [1:4] &quot;England&quot; &quot;Scotland&quot; &quot;Wales&quot; &quot;Northern Ireland&quot;
+##   ..$ hits    : int [1:4] 100 98 93 82
+##   ..$ keyword : Factor w/ 1 level &quot;Artificial + neural + network&quot;: 1 1 1 1
+##   ..$ geo     : chr [1:4] &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; &quot;GB&quot;
+##   ..$ gprop   : chr [1:4] &quot;web&quot; &quot;web&quot; &quot;web&quot; &quot;web&quot;
+##  $ interest_by_dma    : NULL
+##  $ interest_by_city   :&#39;data.frame&#39;: 87 obs. of  5 variables:
+##   ..$ location: chr [1:87] &quot;Milton Keynes&quot; &quot;Cambridge&quot; &quot;Basingstoke&quot; &quot;Reading&quot; ...
+##   ..$ hits    : int [1:87] NA 100 NA 89 NA 87 NA 86 NA NA ...
+##   ..$ keyword : Factor w/ 1 level &quot;Artificial + neural + network&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##   ..$ geo     : chr [1:87] &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; ...
+##   ..$ gprop   : chr [1:87] &quot;web&quot; &quot;web&quot; &quot;web&quot; &quot;web&quot; ...
+##  $ related_topics     :&#39;data.frame&#39;: 44 obs. of  6 variables:
+##   ..$ subject       : chr [1:44] &quot;100&quot; &quot;20&quot; &quot;19&quot; &quot;10&quot; ...
+##   ..$ related_topics: chr [1:44] &quot;top&quot; &quot;top&quot; &quot;top&quot; &quot;top&quot; ...
+##   ..$ value         : chr [1:44] &quot;Computer network&quot; &quot;Network Rail&quot; &quot;Rail transport&quot; &quot;Artificial turf&quot; ...
+##   ..$ geo           : chr [1:44] &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; ...
+##   ..$ keyword       : chr [1:44] &quot;Artificial+neural+network&quot; &quot;Artificial+neural+network&quot; &quot;Artificial+neural+network&quot; &quot;Artificial+neural+network&quot; ...
+##   ..$ category      : int [1:44] 0 0 0 0 0 0 0 0 0 0 ...
+##   ..- attr(*, &quot;reshapeLong&quot;)=List of 4
+##   .. ..$ varying:List of 1
+##   .. .. ..$ value: chr &quot;top&quot;
+##   .. .. ..- attr(*, &quot;v.names&quot;)= chr &quot;value&quot;
+##   .. .. ..- attr(*, &quot;times&quot;)= chr &quot;top&quot;
+##   .. ..$ v.names: chr &quot;value&quot;
+##   .. ..$ idvar  : chr &quot;id&quot;
+##   .. ..$ timevar: chr &quot;related_topics&quot;
+##  $ related_queries    :&#39;data.frame&#39;: 50 obs. of  6 variables:
+##   ..$ subject        : chr [1:50] &quot;100&quot; &quot;87&quot; &quot;47&quot; &quot;44&quot; ...
+##   ..$ related_queries: chr [1:50] &quot;top&quot; &quot;top&quot; &quot;top&quot; &quot;top&quot; ...
+##   ..$ value          : chr [1:50] &quot;network rail&quot; &quot;the network&quot; &quot;artificial grass&quot; &quot;mobile network&quot; ...
+##   ..$ geo            : chr [1:50] &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; ...
+##   ..$ keyword        : chr [1:50] &quot;Artificial+neural+network&quot; &quot;Artificial+neural+network&quot; &quot;Artificial+neural+network&quot; &quot;Artificial+neural+network&quot; ...
+##   ..$ category       : int [1:50] 0 0 0 0 0 0 0 0 0 0 ...
+##   ..- attr(*, &quot;reshapeLong&quot;)=List of 4
+##   .. ..$ varying:List of 1
+##   .. .. ..$ value: chr &quot;top&quot;
+##   .. .. ..- attr(*, &quot;v.names&quot;)= chr &quot;value&quot;
+##   .. .. ..- attr(*, &quot;times&quot;)= chr &quot;top&quot;
+##   .. ..$ v.names: chr &quot;value&quot;
+##   .. ..$ idvar  : chr &quot;id&quot;
+##   .. ..$ timevar: chr &quot;related_queries&quot;
+##  - attr(*, &quot;class&quot;)= chr [1:2] &quot;gtrends&quot; &quot;list&quot;</code></pre>
+<p>We can access the elements of the list we would like and assign them to a variable. I have creatively named them as seen below.</p>
+<p>The city data seems quite suspect to me and is undoubtedly a case of search locations being grouped to the nearest
+‘city’</p>
+<pre class="r"><code>time_trend &lt;- trends$interest_over_time
+
+city &lt;- trends$interest_by_city</code></pre>
+<div id="process-and-plot" class="section level3">
+<h3>Process and plot</h3>
+<pre class="r"><code># A little bit of cleaning ------------------------------------------------
+library(forcats)
+city &lt;- na.omit(city)
+# Lets take a look --------------------------------------------------------
+ggplot(city, aes( reorder(location, hits), hits)) +
+geom_col(fill =&quot;#E69F00&quot;, show.legend = FALSE) +
+coord_flip() +
+labs(title = &#39;Search Results By Approx Location&#39;,
+        y = &#39;Relative Interest&#39;,
+        x =&#39;Approx Locations&#39;,
+       caption = Sys.Date()) +
+theme_hermit()</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code># CAUTION: This step is only undertaken to ensure better plotting  --------
+time_trend$hits[time_trend$hits == &#39;&lt;1&#39;] &lt;- 0
+
+time_trend$hits &lt;- as.numeric(time_trend$hits)
+
+glimpse(time_trend)</code></pre>
+<pre><code>## Rows: 77
+## Columns: 7
+## $ date     &lt;dttm&gt; 2014-01-01, 2014-02-01, 2014-03-01, 2014-04-01, 2014-05-0...
+## $ hits     &lt;dbl&gt; 87, 90, 90, 82, 83, 81, 83, 84, 85, 86, 89, 100, 88, 85, 8...
+## $ keyword  &lt;chr&gt; &quot;Artificial+neural+network&quot;, &quot;Artificial+neural+network&quot;, ...
+## $ geo      &lt;chr&gt; &quot;GB&quot;, &quot;GB&quot;, &quot;GB&quot;, &quot;GB&quot;, &quot;GB&quot;, &quot;GB&quot;, &quot;GB&quot;, &quot;GB&quot;, &quot;GB&quot;, &quot;GB&quot;...
+## $ time     &lt;chr&gt; &quot;2014-01-01 2020-05-30&quot;, &quot;2014-01-01 2020-05-30&quot;, &quot;2014-01...
+## $ gprop    &lt;chr&gt; &quot;web&quot;, &quot;web&quot;, &quot;web&quot;, &quot;web&quot;, &quot;web&quot;, &quot;web&quot;, &quot;web&quot;, &quot;web&quot;, &quot;w...
+## $ category &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0...</code></pre>
+<pre class="r"><code>ggplot(time_trend, aes(x=date, y=hits,group=keyword,col=keyword))+
+  geom_line(size=1,col =&quot;#E69F00&quot;)+
+  xlab(&#39;Time&#39;)+
+  ylab(&#39;Relative Interest&#39;)+ 
+  theme_hermit()+
+  theme(legend.title = element_blank(),legend.position=&quot;right&quot;,legend.text=element_text(size=12))+
+  ggtitle(&#39;Interest in Artificial Neural Networks since 2014&#39;) +
+  scale_color_viridis_d()</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+</div>
+<div id="lets-do-something-similar-this-time-in-wikipedia" class="section level1">
+<h1>Lets do something similar this time in Wikipedia</h1>
+<p>Using Wikipedia Trend</p>
+<p>The first thing we will do is create the query. Note that you will have to ensure
+that the wikipedia you want exists and that you have written it as it appears in
+actual URL.</p>
+<pre class="r"><code>library(wikipediatrend)</code></pre>
+<pre><code>## Warning: package &#39;wikipediatrend&#39; was built under R version 3.6.3</code></pre>
+<pre><code>## 
+##   [wikipediatrend]
+##     
+##   Note:
+##     
+##     - Data before 2016-01-01 
+##       * is provided by petermeissner.de and
+##       * was prepared in a project commissioned by the Hertie School of Governance (Prof. Dr. Simon Munzert)
+##       * and supported by the Daimler and Benz Foundation.
+##     
+##     - Data from 2016-01-01 onwards 
+##       * is provided by the Wikipedia Foundation
+##       * via its pageviews package and API.
+## </code></pre>
+<pre class="r"><code>wiki_search &lt;- wp_trend(page = &#39;Artificial_neural_network&#39;,
+         from = &#39;2014-01-01&#39;,
+         to = Sys.Date())</code></pre>
+<pre class="r"><code>qplot(x = date,y = views,data = wiki_search,geom = &#39;line&#39;)  + 
+  theme_minimal()+
+  ggtitle(&#39;Interest in ANN since 2014&#39;)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code>wiki_search %&gt;% 
+  ggplot(aes(date,views,col=article)) +
+  geom_line(size=0.5,show.legend = FALSE)+
+  geom_smooth(col=&#39;#c00000&#39;,se = FALSE)+
+  theme_minimal() +
+  scale_y_continuous(labels = scales::comma)+
+  scale_color_viridis_d() +
+  labs(title = &#39;Wikipedia Page Views Since Jan 2014&#39;)</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;gam&#39; and formula &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 </div>

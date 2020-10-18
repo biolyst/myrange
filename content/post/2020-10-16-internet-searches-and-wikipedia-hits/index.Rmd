@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-```{r,echo=FALSE,warning=FALSE,message=FALSE}
+```{r,warning=FALSE,message=FALSE}
 ```
 
 
@@ -98,4 +98,119 @@ labs(title = 'Search Results By Approx Location',
 theme_hermit()
 
 ```
+
+
+
+```{r}
+
+# CAUTION: This step is only undertaken to ensure better plotting  --------
+time_trend$hits[time_trend$hits == '<1'] <- 0
+
+time_trend$hits <- as.numeric(time_trend$hits)
+
+glimpse(time_trend)
+
+ggplot(time_trend, aes(x=date, y=hits,group=keyword,col=keyword))+
+  geom_line(size=1,col ="#E69F00")+
+  xlab('Time')+
+  ylab('Relative Interest')+ 
+  theme_hermit()+
+  theme(legend.title = element_blank(),legend.position="right",legend.text=element_text(size=12))+
+  ggtitle('Interest in Artificial Neural Networks since 2014') +
+  scale_color_viridis_d()
+
+
+```
+
+
+
+# Lets do something similar this time in Wikipedia
+Using Wikipedia Trend
+
+
+The first thing we will do is create the query. Note that you will have to ensure
+that the wikipedia you want exists and that you have written it as it appears in
+actual URL.
+
+```{r}
+library(wikipediatrend)
+
+wiki_search <- wp_trend(page = 'Artificial_neural_network',
+         from = '2014-01-01',
+         to = Sys.Date())
+
+```
+
+
+```{r}
+qplot(x = date,y = views,data = wiki_search,geom = 'line',col = 'col ="#E69F00')  + 
+  theme_hermit()+
+  ggtitle('Interest in ANN since 2014')
+
+```
+
+
+
+```{r}
+wiki_search %>% 
+  ggplot(aes(date,views,col=article)) +
+  geom_line(size=0.5,show.legend = FALSE)+
+  geom_smooth(col='#c00000',se = FALSE)+
+  theme_hermit() +
+  scale_y_continuous(labels = scales::comma)+
+  scale_color_viridis_d() +
+  labs(title = 'Wikipedia Page Views Since Jan 2014')
+```
+
+
+
+# Lets try some forecasting 
+## Be it a very quick and dirty forecast
+
+
+
+Facebook's Prophet requires two columns with specific names `ds` and `y`
+```{r}
+library(prophet)
+ds <- time_trend$date
+y <- time_trend$hits
+
+```
+
+you can then combine both into a `dataframe`
+
+
+```{r}
+df <- data.frame(ds,y)
+```
+
+Make a prophet object
+```{r}
+m <- prophet(df,weekly.seasonality = TRUE)
+
+class(m)
+```
+
+How far you want to forecast, `periods` is in days
+```{r}
+future <- make_future_dataframe(m, periods = 365)
+```
+ Use the native predict function
+```{r}
+forecast <- predict(m, future)
+```
+Use `Base R` for some plotting 
+```{r}
+plot(m, forecast)
+```
+View the decomp
+```{r}
+prophet_plot_components(m, forecast)
+```
+
+This has been quite a quick and dirty  forecast and should without a doubt
+**NOT** be considered a true reflection of patterns. 
+
+
+
 

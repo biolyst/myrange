@@ -47,7 +47,7 @@ str(trends)</code></pre>
 <pre><code>## List of 7
 ##  $ interest_over_time :&#39;data.frame&#39;: 77 obs. of  7 variables:
 ##   ..$ date    : POSIXct[1:77], format: &quot;2014-01-01&quot; &quot;2014-02-01&quot; ...
-##   ..$ hits    : int [1:77] 87 89 89 83 83 82 80 82 86 88 ...
+##   ..$ hits    : int [1:77] 87 90 92 86 81 81 85 83 87 88 ...
 ##   ..$ keyword : chr [1:77] &quot;Artificial+neural+network&quot; &quot;Artificial+neural+network&quot; &quot;Artificial+neural+network&quot; &quot;Artificial+neural+network&quot; ...
 ##   ..$ geo     : chr [1:77] &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; ...
 ##   ..$ time    : chr [1:77] &quot;2014-01-01 2020-05-30&quot; &quot;2014-01-01 2020-05-30&quot; &quot;2014-01-01 2020-05-30&quot; &quot;2014-01-01 2020-05-30&quot; ...
@@ -56,19 +56,19 @@ str(trends)</code></pre>
 ##  $ interest_by_country: NULL
 ##  $ interest_by_region :&#39;data.frame&#39;: 4 obs. of  5 variables:
 ##   ..$ location: chr [1:4] &quot;England&quot; &quot;Scotland&quot; &quot;Wales&quot; &quot;Northern Ireland&quot;
-##   ..$ hits    : int [1:4] 100 97 93 80
+##   ..$ hits    : int [1:4] 100 98 93 82
 ##   ..$ keyword : Factor w/ 1 level &quot;Artificial + neural + network&quot;: 1 1 1 1
 ##   ..$ geo     : chr [1:4] &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; &quot;GB&quot;
 ##   ..$ gprop   : chr [1:4] &quot;web&quot; &quot;web&quot; &quot;web&quot; &quot;web&quot;
 ##  $ interest_by_dma    : NULL
-##  $ interest_by_city   :&#39;data.frame&#39;: 93 obs. of  5 variables:
-##   ..$ location: chr [1:93] &quot;Milton Keynes&quot; &quot;Cambridge&quot; &quot;Coventry&quot; &quot;Warrington&quot; ...
-##   ..$ hits    : int [1:93] NA 100 92 NA 90 NA NA NA NA 87 ...
+##  $ interest_by_city   :&#39;data.frame&#39;: 87 obs. of  5 variables:
+##   ..$ location: chr [1:87] &quot;Milton Keynes&quot; &quot;Cambridge&quot; &quot;Basingstoke&quot; &quot;Reading&quot; ...
+##   ..$ hits    : int [1:87] NA 100 NA 89 NA 87 NA 86 NA NA ...
 ##   ..$ keyword : Factor w/ 1 level &quot;Artificial + neural + network&quot;: 1 1 1 1 1 1 1 1 1 1 ...
-##   ..$ geo     : chr [1:93] &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; ...
-##   ..$ gprop   : chr [1:93] &quot;web&quot; &quot;web&quot; &quot;web&quot; &quot;web&quot; ...
+##   ..$ geo     : chr [1:87] &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; ...
+##   ..$ gprop   : chr [1:87] &quot;web&quot; &quot;web&quot; &quot;web&quot; &quot;web&quot; ...
 ##  $ related_topics     :&#39;data.frame&#39;: 44 obs. of  6 variables:
-##   ..$ subject       : chr [1:44] &quot;100&quot; &quot;22&quot; &quot;21&quot; &quot;12&quot; ...
+##   ..$ subject       : chr [1:44] &quot;100&quot; &quot;20&quot; &quot;19&quot; &quot;10&quot; ...
 ##   ..$ related_topics: chr [1:44] &quot;top&quot; &quot;top&quot; &quot;top&quot; &quot;top&quot; ...
 ##   ..$ value         : chr [1:44] &quot;Computer network&quot; &quot;Network Rail&quot; &quot;Rail transport&quot; &quot;Artificial turf&quot; ...
 ##   ..$ geo           : chr [1:44] &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; ...
@@ -83,9 +83,9 @@ str(trends)</code></pre>
 ##   .. ..$ idvar  : chr &quot;id&quot;
 ##   .. ..$ timevar: chr &quot;related_topics&quot;
 ##  $ related_queries    :&#39;data.frame&#39;: 50 obs. of  6 variables:
-##   ..$ subject        : chr [1:50] &quot;100&quot; &quot;66&quot; &quot;50&quot; &quot;33&quot; ...
+##   ..$ subject        : chr [1:50] &quot;100&quot; &quot;87&quot; &quot;47&quot; &quot;44&quot; ...
 ##   ..$ related_queries: chr [1:50] &quot;top&quot; &quot;top&quot; &quot;top&quot; &quot;top&quot; ...
-##   ..$ value          : chr [1:50] &quot;network rail&quot; &quot;how to network&quot; &quot;artificial grass&quot; &quot;wwe network&quot; ...
+##   ..$ value          : chr [1:50] &quot;network rail&quot; &quot;the network&quot; &quot;artificial grass&quot; &quot;mobile network&quot; ...
 ##   ..$ geo            : chr [1:50] &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; &quot;GB&quot; ...
 ##   ..$ keyword        : chr [1:50] &quot;Artificial+neural+network&quot; &quot;Artificial+neural+network&quot; &quot;Artificial+neural+network&quot; &quot;Artificial+neural+network&quot; ...
 ##   ..$ category       : int [1:50] 0 0 0 0 0 0 0 0 0 0 ...
@@ -119,5 +119,110 @@ labs(title = &#39;Search Results By Approx Location&#39;,
        caption = Sys.Date()) +
 theme_hermit()</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code># CAUTION: This step is only undertaken to ensure better plotting  --------
+time_trend$hits[time_trend$hits == &#39;&lt;1&#39;] &lt;- 0
+
+time_trend$hits &lt;- as.numeric(time_trend$hits)
+
+glimpse(time_trend)</code></pre>
+<pre><code>## Rows: 77
+## Columns: 7
+## $ date     &lt;dttm&gt; 2014-01-01, 2014-02-01, 2014-03-01, 2014-04-01, 2014-05-0...
+## $ hits     &lt;dbl&gt; 87, 90, 92, 86, 81, 81, 85, 83, 87, 88, 91, 100, 90, 83, 8...
+## $ keyword  &lt;chr&gt; &quot;Artificial+neural+network&quot;, &quot;Artificial+neural+network&quot;, ...
+## $ geo      &lt;chr&gt; &quot;GB&quot;, &quot;GB&quot;, &quot;GB&quot;, &quot;GB&quot;, &quot;GB&quot;, &quot;GB&quot;, &quot;GB&quot;, &quot;GB&quot;, &quot;GB&quot;, &quot;GB&quot;...
+## $ time     &lt;chr&gt; &quot;2014-01-01 2020-05-30&quot;, &quot;2014-01-01 2020-05-30&quot;, &quot;2014-01...
+## $ gprop    &lt;chr&gt; &quot;web&quot;, &quot;web&quot;, &quot;web&quot;, &quot;web&quot;, &quot;web&quot;, &quot;web&quot;, &quot;web&quot;, &quot;web&quot;, &quot;w...
+## $ category &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0...</code></pre>
+<pre class="r"><code>ggplot(time_trend, aes(x=date, y=hits,group=keyword,col=keyword))+
+  geom_line(size=1,col =&quot;#E69F00&quot;)+
+  xlab(&#39;Time&#39;)+
+  ylab(&#39;Relative Interest&#39;)+ 
+  theme_hermit()+
+  theme(legend.title = element_blank(),legend.position=&quot;right&quot;,legend.text=element_text(size=12))+
+  ggtitle(&#39;Interest in Artificial Neural Networks since 2014&#39;) +
+  scale_color_viridis_d()</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+</div>
+<div id="lets-do-something-similar-this-time-in-wikipedia" class="section level1">
+<h1>Lets do something similar this time in Wikipedia</h1>
+<p>Using Wikipedia Trend</p>
+<p>The first thing we will do is create the query. Note that you will have to ensure
+that the wikipedia you want exists and that you have written it as it appears in
+actual URL.</p>
+<pre class="r"><code>library(wikipediatrend)</code></pre>
+<pre><code>## Warning: package &#39;wikipediatrend&#39; was built under R version 3.6.3</code></pre>
+<pre><code>## 
+##   [wikipediatrend]
+##     
+##   Note:
+##     
+##     - Data before 2016-01-01 
+##       * is provided by petermeissner.de and
+##       * was prepared in a project commissioned by the Hertie School of Governance (Prof. Dr. Simon Munzert)
+##       * and supported by the Daimler and Benz Foundation.
+##     
+##     - Data from 2016-01-01 onwards 
+##       * is provided by the Wikipedia Foundation
+##       * via its pageviews package and API.
+## </code></pre>
+<pre class="r"><code>wiki_search &lt;- wp_trend(page = &#39;Artificial_neural_network&#39;,
+         from = &#39;2014-01-01&#39;,
+         to = Sys.Date())</code></pre>
+<pre class="r"><code>qplot(x = date,y = views,data = wiki_search,geom = &#39;line&#39;,col = &#39;col =&quot;#E69F00&#39;)  + 
+  theme_hermit()+
+  ggtitle(&#39;Interest in ANN since 2014&#39;)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code>wiki_search %&gt;% 
+  ggplot(aes(date,views,col=article)) +
+  geom_line(size=0.5,show.legend = FALSE)+
+  geom_smooth(col=&#39;#c00000&#39;,se = FALSE)+
+  theme_hermit() +
+  scale_y_continuous(labels = scales::comma)+
+  scale_color_viridis_d() +
+  labs(title = &#39;Wikipedia Page Views Since Jan 2014&#39;)</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;gam&#39; and formula &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+<div id="lets-try-some-forecasting" class="section level1">
+<h1>Lets try some forecasting</h1>
+<div id="be-it-a-very-quick-and-dirty-forecast" class="section level2">
+<h2>Be it a very quick and dirty forecast</h2>
+<p>Facebook’s Prophet requires two columns with specific names <code>ds</code> and <code>y</code></p>
+<pre class="r"><code>library(prophet)</code></pre>
+<pre><code>## Warning: package &#39;prophet&#39; was built under R version 3.6.3</code></pre>
+<pre><code>## Loading required package: Rcpp</code></pre>
+<pre><code>## Warning: package &#39;Rcpp&#39; was built under R version 3.6.3</code></pre>
+<pre><code>## Loading required package: rlang</code></pre>
+<pre><code>## Warning: package &#39;rlang&#39; was built under R version 3.6.3</code></pre>
+<pre><code>## 
+## Attaching package: &#39;rlang&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:purrr&#39;:
+## 
+##     %@%, as_function, flatten, flatten_chr, flatten_dbl, flatten_int,
+##     flatten_lgl, flatten_raw, invoke, list_along, modify, prepend,
+##     splice</code></pre>
+<pre class="r"><code>ds &lt;- time_trend$date
+y &lt;- time_trend$hits</code></pre>
+<p>you can then combine both into a <code>dataframe</code></p>
+<pre class="r"><code>df &lt;- data.frame(ds,y)</code></pre>
+<p>Make a prophet object</p>
+<pre class="r"><code>m &lt;- prophet(df,weekly.seasonality = TRUE)</code></pre>
+<pre><code>## Disabling daily seasonality. Run prophet with daily.seasonality=TRUE to override this.</code></pre>
+<pre class="r"><code>class(m)</code></pre>
+<pre><code>## [1] &quot;prophet&quot; &quot;list&quot;</code></pre>
+<p>How far you want to forecast, <code>periods</code> is in days</p>
+<pre class="r"><code>future &lt;- make_future_dataframe(m, periods = 365)</code></pre>
+<p>Use the native predict function</p>
+<pre class="r"><code>forecast &lt;- predict(m, future)</code></pre>
+<p>Use <code>Base R</code> for some plotting</p>
+<pre class="r"><code>plot(m, forecast)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+View the decomp</p>
+<pre class="r"><code>prophet_plot_components(m, forecast)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>This has been quite a quick and dirty forecast and should without a doubt
+<strong>NOT</strong> be considered a true reflection of patterns.</p>
 </div>
 </div>

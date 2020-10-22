@@ -1,0 +1,165 @@
+---
+title: DNA Mismatch Distributions
+author: ''
+date: '2020-10-22'
+slug: []
+categories:
+  - biology
+  - ggplot2
+  - programming
+tags:
+  - analysis
+  - biology
+---
+
+
+## Why Mismatch distributions
+
+***
+***
+***
+*The distribution of pairwise genetic difference (also referred to as mismatch distribution)  is the distribution of the number of difference between pairs of haplotypes. It can be used to gain insight into demographic history. Populations at the demographic equilibrium threshold display multimodality. While populations lacking stability (recent expansion) display unimodality (Slatkin and Hudson 1991)*
+
+- From some of my currently unpublished work 
+
+
+***
+***
+***
+
+## House Keeping 
+
+Just a heads up, 
+
+
+I won't be getting into the creation of a sequence alignment (that you would need to use to calculate Mismatch Distributions) or all the ramifications of and reasons for conducting such an analysis. 
+
+
+This has been created to work with  **DnaSP version 6.12.03**.
+
+
+**IMPORTANT: I suggest creating a new folder for outputting your DnaSP .out files.**
+
+## Prepping Files
+
+Get your alignment opened up in DnaSp. 
+
+
+Select the `Analysis` tab and then click on `Population Size Changes`. 
+I left all settings as default and let it run, run times will vary depending on the size of your
+alignment. 
+
+
+Once the run is complete
+
+Go to `File` and choose `Save Current Output`.
+
+Choose a folder that you can easily navigate to, or preferably within the RStudio project you
+created. 
+
+What is really important is that you choose informative file names with a consistent format. 
+This is important and this will be used as titles in the plots later on. 
+
+ - The format I like is : `Location_Species_Gene_NumberOfSamples`
+ 
+Whatever you do, make it informative and consistent. This is a good rule for file names in 
+general. 
+
+**You wouldn't call your dogs, Dog1 and Dog2** 
+
+
+Do this for each of your alignments. This script gets all the more useful the more files you have.
+
+
+
+## The code
+
+### The bulk of it is in this for loop
+
+![](/post/2020-10-22-visualising-dna-mismatch-distributions/dnasploop.png)
+
+
+
+
+
+
+There are comments in there which should help explain logic
+
+Have fun
+
+```{r,eval=FALSE}
+# Either set the working directory to where the files have been saved
+# Or preferably create a new project in R Studio. 
+# setwd("C:\\X\\Y\\Z\\")
+
+# Next you need to bring in the relevant libraries. 
+pkg_list = c("readr","ggplot2","magrittr","dplyr","cowplot","purrr")
+
+check_pkg <- function(pkg) {
+  if(!require(pkg)){
+    install.packages(pkg)
+  }
+}
+
+# Load them up
+library(readr)
+library(ggplot2)
+library(cowplot)
+library(magrittr)
+library(dplyr)
+library(cowplot)
+library(purrr)
+
+# Find files that match file extension
+(out_files <- dir(pattern = "*.out"))
+
+# Create an empty list for filling
+df = vector(mode = 'list')
+
+# Read in files, rename and write as csv
+for ( i in seq_along(out_files)){
+  df[[i]] <- read.table(out_files[i], skip = 45, 
+                        col.names = c("Differences", "FreqObs", "FreqExp"))
+  out_files[i] <- gsub("*.out","", out_files[i])
+  write_csv(df[[i]], path = paste0(out_files[i], '.csv'))
+}
+
+
+# At this point you can check your folder that you have pointed RStudio to
+# and you will see CSV files with the exact same name as what you selected 
+# when saving from DnaSP
+
+
+# Define This function from (https://stackoverflow.com/users/5088194/leerssej)
+# This will help for reading in the CSVs with corresponding file names
+read_plus <- function(flnm) {
+    read_csv(flnm) %>% 
+        mutate(filename = flnm)
+}
+
+# Using some functional programming from Purrr read in all those CSVs with the
+# above function
+dfs <- list.files(pattern = "*.csv", full.names = F) %>% 
+    map_df(~read_plus(.))
+
+# If your file name has _ in it, these will be removed
+dfs$filename <- gsub("_"," ", dfs$filename)
+# As will the .csv suffix
+dfs$filename <- gsub("*.csv","", dfs$filename)
+
+# With a slight reshape of the data we can plot and facet
+# The facet titles should correspond to the file names. 
+dfs %>% 
+  gather(type,frequency,-Differences,-filename) %>% 
+  ggplot(aes(x = Differences, y = frequency, col= type))+
+  geom_line(size=1.5)+
+  scale_color_grey()+
+  theme_classic() +
+  labs(x = 'Number of Differences',
+       y = 'Frequency',
+       title = 'Mismatch Distributions')+
+  facet_wrap(~filename,nrow = 2,scales = 'free_y')
+ 
+ggsave(filename = 'My_MM.png',device = 'png')
+
+```

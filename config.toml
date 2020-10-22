@@ -11,6 +11,7 @@ paginate = 5
     hl_Lines = ""
     lineNoStart = 1
     lineNos = false
+    style = "dracula"
     lineNumbersInTable = true
     noClasses = true
     tabWidth = 4

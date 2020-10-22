@@ -1,7 +1,19 @@
 baseURL = "https://biolysthome.netlify.app/"
-title = "A Biologist Wandering in the World of Analytics"
+title = "Under Construction"
 theme = "hugo-theme-m10c"
 paginate = 5
+
+[markup.goldmark.renderer]
+  unsafe= true
+  
+[markup.highlight]
+    codeFences = true
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    tabWidth = 4
 
 [menu]
   [[menu.main]]

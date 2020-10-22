@@ -1,17 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on A Biologist Wandering in the World of Analytics</title>
+    <title>Categories on Under Construction</title>
     <link>https://biolysthome.netlify.app/categories/</link>
-    <description>Recent content in Categories on A Biologist Wandering in the World of Analytics</description>
+    <description>Recent content in Categories on Under Construction</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://biolysthome.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://biolysthome.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>biology</title>
+      <link>https://biolysthome.netlify.app/categories/biology/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://biolysthome.netlify.app/categories/biology/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ggplot2</title>
       <link>https://biolysthome.netlify.app/categories/ggplot2/</link>
-      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://biolysthome.netlify.app/categories/ggplot2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://biolysthome.netlify.app/categories/programming/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://biolysthome.netlify.app/categories/programming/</guid>
       <description></description>
     </item>
     

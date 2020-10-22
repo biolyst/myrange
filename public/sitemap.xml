@@ -3,8 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://biolysthome.netlify.app/tags/biology/</loc>
+    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/categories/biology/</loc>
+    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/categories/</loc>
+    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/categories/ggplot2/</loc>
+    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/post/</loc>
+    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/tags/programming/</loc>
+    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/categories/programming/</loc>
+    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/tags/</loc>
+    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://biolysthome.netlify.app/</loc>
-    <lastmod>2020-10-16T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/post/2020-10-22-visualising-dna-mismatch-distributions/</loc>
+    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -14,16 +59,6 @@
   
   <url>
     <loc>https://biolysthome.netlify.app/tags/analysis/</loc>
-    <lastmod>2020-10-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/categories/</loc>
-    <lastmod>2020-10-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/categories/ggplot2/</loc>
     <lastmod>2020-10-16T00:00:00+00:00</lastmod>
   </url>
   
@@ -43,11 +78,6 @@
   </url>
   
   <url>
-    <loc>https://biolysthome.netlify.app/post/</loc>
-    <lastmod>2020-10-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://biolysthome.netlify.app/categories/prophet/</loc>
     <lastmod>2020-10-16T00:00:00+00:00</lastmod>
   </url>
@@ -59,11 +89,6 @@
   
   <url>
     <loc>https://biolysthome.netlify.app/tags/r-markdown/</loc>
-    <lastmod>2020-10-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/tags/</loc>
     <lastmod>2020-10-16T00:00:00+00:00</lastmod>
   </url>
   
@@ -140,56 +165,6 @@
   <url>
     <loc>https://biolysthome.netlify.app/posts/migrate-from-jekyll/</loc>
     <lastmod>2014-03-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/tags/test/</loc>
-    <lastmod>1012-01-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/posts/test-9/</loc>
-    <lastmod>1012-01-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/posts/test-8/</loc>
-    <lastmod>1012-01-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/posts/test-7/</loc>
-    <lastmod>1012-01-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/posts/test-6/</loc>
-    <lastmod>1012-01-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/posts/test-5/</loc>
-    <lastmod>1012-01-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/posts/test-4/</loc>
-    <lastmod>1012-01-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/posts/test-3/</loc>
-    <lastmod>1012-01-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/posts/test-2/</loc>
-    <lastmod>1012-01-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/posts/test-1/</loc>
-    <lastmod>1012-01-01T00:00:00+00:00</lastmod>
   </url>
   
 </urlset>

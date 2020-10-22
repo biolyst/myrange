@@ -1,0 +1,139 @@
+---
+title: Visualising DNA Mismatch Distributions
+author: ''
+date: '2020-10-22'
+slug: []
+categories:
+  - ggplot2
+  - biology
+  - programming
+tags:
+  - biology
+  - programming
+---
+
+<script src="index_files/header-attrs/header-attrs.js"></script>
+<link href="index_files/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="index_files/anchor-sections/anchor-sections.js"></script>
+
+
+<div id="why-mismatch-distributions" class="section level2">
+<h2>Why Mismatch distributions</h2>
+<hr />
+<hr />
+<hr />
+<p><em>The distribution of pairwise genetic difference (also referred to as mismatch distribution) is the distribution of the number of difference between pairs of haplotypes. It can be used to gain insight into demographic history. Populations at the demographic equilibrium threshold display multimodality. While populations lacking stability (recent expansion) display unimodality (Slatkin and Hudson 1991)</em>
+- From some of my currently unpublished work</p>
+<hr />
+<hr />
+<hr />
+</div>
+<div id="house-keeping" class="section level2">
+<h2>House Keeping</h2>
+<p>Just a heads up,</p>
+<p>I won’t be getting into the creation of a sequence alignment (that you would need to use to calculate Mismatch Distributions) or all the ramifications of and reasons for conducting such an analysis.</p>
+<p>This has been created to work with <strong>DnaSP version 6.12.03</strong>.</p>
+<p><strong>IMPORTANT: I suggest creating a new folder for outputting your DnaSP .out files.</strong></p>
+</div>
+<div id="prepping-files" class="section level2">
+<h2>Prepping Files</h2>
+<p>Get your alignment opened up in DnaSp.</p>
+<p>Select the <code>Analysis</code> tab and then click on <code>Population Size Changes</code>.
+I left all settings as default and let it run, run times will vary depending on the size of your
+alignment.</p>
+<p>Once the run is complete</p>
+<p>Go to <code>File</code> and choose <code>Save Current Output</code>.</p>
+<p>Choose a folder that you can easily navigate to, or preferably within the RStudio project you
+created.</p>
+<p>What is really important is that you choose informative file names with a consistent format.
+This is important and this will be used as titles in the plots later on.</p>
+<ul>
+<li>The format I like is : <code>Location_Species_Gene_NumberOfSamples</code></li>
+</ul>
+<p>Whatever you do, make it informative and consistent. This is a good rule for file names in
+general.</p>
+<p><strong>You wouldn’t call your dogs, Dog1 and Dog2</strong></p>
+<p>Do this for each of your alignments. This script gets all the more useful the more files you have.</p>
+</div>
+<div id="the-code" class="section level2">
+<h2>The code</h2>
+<div id="the-bulk-of-it-is-in-this-for-loop" class="section level3">
+<h3>The bulk of it is in this for loop</h3>
+<p><img src="/post/2020-10-22-visualising-dna-mismatch-distributions/dnasploop.png" /></p>
+<p>There are comments in there which should help explain logic</p>
+<p>Have fun</p>
+<pre class="r"><code># Either set the working directory to where the files have been saved
+# Or preferably create a new project in R Studio. 
+# setwd(&quot;C:\\X\\Y\\Z\\&quot;)
+
+# Next you need to bring in the relevant libraries. 
+pkg_list = c(&quot;readr&quot;,&quot;ggplot2&quot;,&quot;magrittr&quot;,&quot;dplyr&quot;,&quot;cowplot&quot;,&quot;purrr&quot;)
+
+check_pkg &lt;- function(pkg) {
+  if(!require(pkg)){
+    install.packages(pkg)
+  }
+}
+
+# Load them up
+library(readr)
+library(ggplot2)
+library(cowplot)
+library(magrittr)
+library(dplyr)
+library(cowplot)
+library(purrr)
+
+# Find files that match file extension
+(out_files &lt;- dir(pattern = &quot;*.out&quot;))
+
+# Create an empty list for filling
+df = vector(mode = &#39;list&#39;)
+
+# Read in files, rename and write as csv
+for ( i in seq_along(out_files)){
+  df[[i]] &lt;- read.table(out_files[i], skip = 45, 
+                        col.names = c(&quot;Differences&quot;, &quot;FreqObs&quot;, &quot;FreqExp&quot;))
+  out_files[i] &lt;- gsub(&quot;*.out&quot;,&quot;&quot;, out_files[i])
+  write_csv(df[[i]], path = paste0(out_files[i], &#39;.csv&#39;))
+}
+
+
+# At this point you can check your folder that you have pointed RStudio to
+# and you will see CSV files with the exact same name as what you selected 
+# when saving from DnaSP
+
+
+# Define This function from (https://stackoverflow.com/users/5088194/leerssej)
+# This will help for reading in the CSVs with corresponding file names
+read_plus &lt;- function(flnm) {
+    read_csv(flnm) %&gt;% 
+        mutate(filename = flnm)
+}
+
+# Using some functional programming from Purrr read in all those CSVs with the
+# above function
+dfs &lt;- list.files(pattern = &quot;*.csv&quot;, full.names = F) %&gt;% 
+    map_df(~read_plus(.))
+
+# If your file name has _ in it, these will be removed
+dfs$filename &lt;- gsub(&quot;_&quot;,&quot; &quot;, dfs$filename)
+# As will the .csv suffix
+dfs$filename &lt;- gsub(&quot;*.csv&quot;,&quot;&quot;, dfs$filename)
+
+# With a slight reshape of the data we can plot and facet
+# The facet titles should correspond to the file names. 
+dfs %&gt;% 
+  gather(type,frequency,-Differences,-filename) %&gt;% 
+  ggplot(aes(x = Differences, y = frequency, col= type))+
+  geom_line(size=1.5)+
+  scale_color_grey()+
+  theme_classic() +
+  labs(x = &#39;Number of Differences&#39;,
+       y = &#39;Frequency&#39;,
+       title = &#39;Mismatch Distributions&#39;)+
+  facet_wrap(~filename,nrow = 2,scales = &#39;free_y&#39;)
+ 
+ggsave(filename = &#39;My_MM.png&#39;,device = &#39;png&#39;)</code></pre>
+</div>
+</div>

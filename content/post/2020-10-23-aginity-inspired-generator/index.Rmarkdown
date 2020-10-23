@@ -32,9 +32,7 @@ install_or_load_pack <- function(pack){
   
 }
 
-
 packages <- c("randomNames")
-
 install_or_load_pack(packages)
 
 ```
@@ -65,3 +63,59 @@ my_rand_gen <-  function() {
 ```{r}
 my_rand_gen()
 ``` 
+
+
+***
+***
+***
+
+
+
+## Breaking it down
+
+Using the inbuilt `colours()` function in R we extract colour names
+```{r}
+col <- colours(distinct = TRUE)
+```
+
+
+Use regex to remove any numbers
+```{r}
+col <- gsub('[[:digit:]]+', '', col)
+```
+ 
+ 
+ As colours were differentiated by a number suffix, the removal of the number  will create a number of identical entries so we drop those using `unique()`
+
+```{r}
+col <- unique(col)
+```
+
+`length()` gives us the number of elements in `col`
+
+```{r}
+length(col)
+```
+
+
+
+Using `randomNames` we generate random names equal to the length of the `col` vector
+That gets wrapped in a `sub()` function that extracts all characters BEFORE the first space
+
+```{r}
+my_name <- sub("\\s.*","", randomNames::randomNames(n=length(col),ethnicity = 5,
+                                                    name.sep = " "))
+```
+
+
+Next we use a nested for loop
+
+```{r}
+for(i in col){
+  for(j in my_name)
+  random_name <- paste(i,j)
+}
+print(random_name)
+```
+
+

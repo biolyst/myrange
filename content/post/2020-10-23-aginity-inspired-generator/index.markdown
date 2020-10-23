@@ -13,7 +13,7 @@ This was inspired by Aginity's tab name format.
 
 ![](/post/2020-10-23-aginity-inspired-generator/randfunction.png)
 
-## Library of Names 
+## Load 'em up 
 
 You can thank [Gary Hutson](https://nhsrcommunity.com/blog/author/garyhutson/) for the below method of loading and or  installing packages
 
@@ -31,45 +31,45 @@ install_or_load_pack <- function(pack){
   
 }
 
-packages <- c("randomNames")
+packages <- c("randomNames","Hmisc")
 install_or_load_pack(packages)
-```
-
-```
-## randomNames 
-##        TRUE
 ```
 ## The Code block
  
 
 
 ```r
-my_rand_gen <-  function() {
-  col <-
-    sample(gsub('[[:digit:]]+', '',  unique(colours(distinct = TRUE))), 1)
-  my_name <- sub("\\s.*",
-                 "",
-                 randomNames::randomNames(
-                   n = length(col),
-                   ethnicity = 5,
-                   name.sep = " "
-                 ))
-  for (i in col) {
-    for (j in my_name)
-      random_name <- paste(i, j)
-  }
-  return(random_name)
+name_generator <- function(selection_pool, final_selection) {
+  col <- colours(distinct = TRUE)
+  col <- gsub('[[:digit:]]+', '', col)
+  col <- unique(col)
+  col <- Hmisc::capitalize(col)
+  my_name <-
+    sub("\\s.*",
+        "",
+        randomNames::randomNames(
+          n = length(col),
+          name.sep = " "
+        )
+      )
+  name_vector <-
+    paste(sample(col, size = selection_pool),
+          sample(my_name, size = selection_pool))
+  print(sample(name_vector, final_selection))
 }
 ```
 ## Give it a spin
 
 
 ```r
-my_rand_gen()
+name_generator(selection_pool = 100,final_selection = 10)
 ```
 
 ```
-## [1] "darkorange Bly"
+##  [1] "Cornflowerblue Maes"    "Springgreen Lenard"     "White el-Reza"         
+##  [4] "Turquoise Claudio"      "Oldlace Thomas"         "Darkslategray Bankett" 
+##  [7] "Indianred Lilly"        "Papayawhip Deskin"      "Mediumseagreen Perez"  
+## [10] "Lavenderblush Wotortsi"
 ```
 
 
@@ -95,22 +95,21 @@ col <- gsub('[[:digit:]]+', '', col)
 ```
  
  
- As colours were differentiated by a number suffix, the removal of the number  will create a number of identical entries so we drop those using `unique()`
+ As colours were differentiated by a number suffix, the removal of the number  will create a number of identical entries.
+ 
+ 
+ So we drop those using `unique()`
 
 
 ```r
 col <- unique(col)
 ```
 
-`length()` gives us the number of elements in `col`
+Lets capitalise the first letter of each of the elements in `col`
 
 
 ```r
-length(col)
-```
-
-```
-## [1] 128
+col <- Hmisc::capitalize(col)
 ```
 
 
@@ -120,24 +119,26 @@ That gets wrapped in a `sub()` function that extracts all characters BEFORE the 
 
 
 ```r
-my_name <- sub("\\s.*","", randomNames::randomNames(n=length(col),ethnicity = 5,
-                                                    name.sep = " "))
+my_name <-
+    sub("\\s.*",
+        "",
+        randomNames::randomNames(
+          n = length(col),
+          name.sep = " "
+        )
+      )
 ```
 
 
-Next we use a nested for loop
+Next we use `sample()` to  select a pre-defined number of elements from both vectors
+and then again we use `sample()` to return a pre-defined number of names. The idea was to make it *EXTRA* random
 
 
 ```r
-for(i in col){
-  for(j in my_name)
-  random_name <- paste(i,j)
-}
-print(random_name)
-```
-
-```
-## [1] "yellow Wiens"
+  name_vector <-
+    paste(sample(col, size = selection_pool),
+          sample(my_name, size = selection_pool))
+  print(sample(name_vector, final_selection))
 ```
 
 

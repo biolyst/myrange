@@ -92,24 +92,26 @@ Have fun
 # Either set the working directory to where the files have been saved
 # Or preferably create a new project in R Studio. 
 # setwd("C:\\X\\Y\\Z\\")
+# Thank you to Gary Hutson for the below function
+install_or_load_pack <- function(pack){
 
-# Next you need to bring in the relevant libraries. 
-pkg_list = c("readr","ggplot2","magrittr","dplyr","cowplot","purrr")
+  create.pkg <- pack[!(pack %in% installed.packages()[, "Package"])]
 
-check_pkg <- function(pkg) {
-  if(!require(pkg)){
-    install.packages(pkg)
-  }
+  if (length(create.pkg))
+
+    install.packages(create.pkg, dependencies = TRUE)
+
+  sapply(pack, require, character.only = TRUE)
+  
 }
 
-# Load them up
-library(readr)
-library(ggplot2)
-library(cowplot)
-library(magrittr)
-library(dplyr)
-library(cowplot)
-library(purrr)
+# Next you need to bring in the relevant libraries. 
+
+packages <-c("readr","ggplot2","magrittr","dplyr","cowplot","purrr")
+
+install_or_load_pack(packages)
+
+
 
 # Find files that match file extension
 (out_files <- dir(pattern = "*.out"))

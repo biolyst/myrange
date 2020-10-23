@@ -17,7 +17,7 @@ This was inspired by Aginity's tab name format.
 
 You can thank [Gary Hutson](https://nhsrcommunity.com/blog/author/garyhutson/) for the below method of loading and or  installing packages
 
-```{r,message=FALSE, warning=FALSE,echo=FALSE}
+```{r,message=FALSE, warning=FALSE}
 
 
 install_or_load_pack <- function(pack){

@@ -18,6 +18,25 @@ This was inspired by Aginity's tab name format.
 You can thank [Gary Hutson](https://nhsrcommunity.com/blog/author/garyhutson/) for the below method of loading and or  installing packages
 
 
+```r
+install_or_load_pack <- function(pack){
+
+  create.pkg <- pack[!(pack %in% installed.packages()[, "Package"])]
+
+  if (length(create.pkg))
+
+    install.packages(create.pkg, dependencies = TRUE)
+
+  sapply(pack, require, character.only = TRUE)
+  
+}
+
+
+packages <- c("randomNames")
+
+install_or_load_pack(packages)
+```
+
 ```
 ## randomNames 
 ##        TRUE
@@ -52,5 +71,5 @@ my_rand_gen()
 ```
 
 ```
-## [1] "brown Ash"
+## [1] "plum Hayes"
 ```

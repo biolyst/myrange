@@ -1,5 +1,5 @@
 baseURL = "https://biolysthome.netlify.app/"
-title = "Under Construction"
+title = "Productive Procastination"
 theme = "hugo-theme-m10c"
 paginate = 8
 
@@ -27,8 +27,8 @@ paginate = 8
     url = "/tags/"
 
 [params]
-  author = "Under Construction"
-  description = "Under Construction."
+  author = "Under "
+  description = "A Biologist Wandering the World of Analytics."
   menu_item_separator = " - "
   [[params.social]]
     name = "github"

@@ -67,10 +67,7 @@ tibble(df) %>%
   theme_fivethirtyeight()+
   #scale_fill_gradient(low = 'red',high = 'chartreuse2')+
   scale_fill_viridis_c(option = "plasma")+
-  labs(title = 'The Results of Compounding Interest',
-       subtitle = "",
-       x = 'Units of Time',
-       y = 'Units of Gain')+ 
+  labs(title = 'The Results of Compounding Interest')+ 
   transition_reveal(id=week, along=week, range =,keep_last = TRUE)
 ```
 

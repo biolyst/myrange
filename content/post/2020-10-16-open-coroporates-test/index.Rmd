@@ -50,7 +50,7 @@ Tabset is incompatible with Hugo, so this is one LONG scroll.
 ## Packages & Data 
 
 
-```{r}
+```{r,warning=FALSE,message=FALSE}
 library(tidyverse)
 library(kableExtra)
 library(knitr)

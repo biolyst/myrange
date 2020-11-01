@@ -1,7 +1,7 @@
 baseURL = "https://biolysthome.netlify.app/"
 title = "Under Construction"
 theme = "hugo-theme-m10c"
-paginate = 5
+paginate = 8
 
 [markup.goldmark.renderer]
   unsafe= true

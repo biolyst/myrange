@@ -1,0 +1,677 @@
+---
+title: Data Analysis Test from Open Corporates
+author: ''
+date: '2020-10-22'
+slug: []
+categories: []
+tags: []
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r,echo=FALSE,warning=FALSE,message=FALSE}
+```
+## Introduction
+
+As per application requirements I will be analysing the data set in accordance with
+prescribed guidelines. 
+
+
+There are three major points to adhere to:
+
+<style>
+div.grey { background-color:#3d4849; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "grey">
+
+- Identify 3-5 interesting facts from the data set
+- Identify at least 3 of the errors within the data set
+- Explain rationale and methodology via code chunks and prose. 
+
+</div>
+
+
+***
+Tabset is incompatible with Hugo, so this is one LONG scroll. 
+
+
+***
+
+
+
+
+## Packages & Data 
+
+
+```{r,warning=FALSE, message=FALSE}
+library(tidyverse)
+library(kableExtra)
+library(knitr)
+library(Amelia)
+library(ggrepel)
+library(ggcharts)
+officer <- read_delim('test_im_officer_export_2016-03-18.csv',delim = "|")
+
+head(officer)
+```
+
+
+The data was read in using `read_delim()` function from `readr` which is a component
+of the `tidyverse` 
+
+
+We can see that a number of columns are missing and only have `NA`s present
+we can confirm that this is the case for the whole of the columns due to the parsing
+of the column as a logical as denoted by `lgl`.
+
+ 
+
+
+
+
+
+For a quick method to see all missing values we can use the `missmap` function from the `Amelia` package.
+
+
+```{r,warning=FALSE,message=FALSE}
+missmap(officer)
+
+```
+
+Again, we can see that the entire set of columns are blank while the ones who do have data
+do not have any missing data. 
+
+To remove these columns we will use a bit of base R rather than tidyverse 
+
+```{r}
+officer <- officer[, !names(officer) %in% c("start_date","end_date","occupation",'nationality')]
+
+kable(officer) %>%
+  kable_styling(bootstrap_options = c( "hover", "condensed")) %>%
+  scroll_box(width = "800px", height = "400px")
+```
+
+
+***
+
+However we could have used the `select` function from `dplyr` to achieve this. 
+There is more than one way to skin a cat!! 
+
+
+
+
+
+
+This also reminds me of  a variation on a classic joke. 
+
+
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
+
+
+"How many data analysts does it take to change a light bulb?"
+
+
+**SEVEN**
+
+
+One to actually change it and the other six to tell you how it could have been done
+differently. 
+
+</div>
+
+
+With the poor and rather unwarranted humour out of the way, let's crack on. 
+
+ 
+ 
+Please use the tabs to navigate through the analysis  
+ 
+ 
+## Analysis {.tabset}
+
+### Position 
+
+From a cursory glance of the data it appears that all positions are filled with `agent`. 
+However, we will have to test this with some functions to be totally sure. 
+
+```{r}
+
+positions <- officer %>% 
+  group_by(position) %>% 
+  count() %>% 
+  rename(Position = position, Count = n)
+
+  
+  kable(positions) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))%>%
+  scroll_box(width = "200px", height = "125px")
+```
+
+
+There are only 20 incorporation agents listed as compared to 12804 agents listed. This means that less than 1 percent (0.15%) are incorporation agents. 
+
+***
+***
+***
+### Companies 
+
+We can use some `dplyr` functions to calculate how many companies are listed, 
+which will just be the number of rows in the data set
+
+```{r}
+officer %>% 
+  count() %>% 
+  rename("Raw Count of Companies Listed" = n ) %>% 
+  knitr::kable()
+
+```
+
+
+
+This simple function works in this case as the data set falls within Hadley's conditions
+of tidy data. 
+
+
+However, the above count may give us duplicated values. 
+To account for duplicated values with we must use `n_distinct`
+
+
+```{r}
+distinct_company_number <- officer %>% 
+  summarise(n_distinct(company_number))
+  
+names(distinct_company_number) <- c("Distinct Companies")
+
+distinct_company_number %>% 
+knitr::kable()
+```
+
+
+
+
+When use use `n_dinstinct`, we can see there are a total of 12822 distinct company numbers
+
+
+
+
+
+We can also perform the same set of functions on `name`
+
+
+```{r}
+officer %>% 
+  summarise(n_distinct(name)) %>% 
+  rename("Distinct Company Names" = `n_distinct(name)`) %>% 
+  knitr::kable()
+
+```
+
+
+
+
+
+
+ We can also view filtered data in the table
+```{r}
+company_count <- officer %>% 
+  group_by(company_number) %>% 
+  tally() %>% 
+  arrange(desc(n)) %>% 
+  rename("Company Number" = company_number, Count = n) 
+
+
+kable(company_count) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
+  scroll_box(width = "400px", height = "200px")
+
+```
+
+
+
+
+Company number **00648V** is listed three times, meaning once for initial entry and then repeated twice.
+The address matches across all three entries. As no other companies have been listed multiple times this 
+may be a data entry error. 
+
+```{r}
+repeated_company <- officer %>% 
+  filter(company_number == "006448V")
+
+kable(repeated_company) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
+  scroll_box(width = '800px', height = "200px")
+
+
+
+```
+***
+
+
+
+
+Interestingly, we find that there are only **156** unique company names in almost 13000
+entries 
+
+
+
+
+
+Commpany **First Names(Isle of Man) Limited** appears **1251** times in the data set
+and is the most frequently listed company by a large margin. The next most commonly listed 
+has less than half as many entries (609) and is **EQUIOM (Isale of Man) Limted**.
+
+```{r}
+
+Companies <- officer %>% 
+  group_by(name) %>% 
+  count() %>% 
+  arrange(desc(n)) %>% 
+  rename(Name = name, Count = n)
+
+
+kable(Companies) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
+  scroll_box(width = '800px', height = "200px")
+
+
+
+```
+
+
+
+
+### Addresses 
+There are a total of **167 unique** addresses, however this could be an over calculation
+
+
+- Because there are 156 company names 
+- But more than likely due to potential errors in spellings or other formatting differences in the field which would result in additional addresses being counted.
+- However a company could have multiple addresses 
+
+
+```{r}
+
+distinct_address <- officer %>% 
+  summarise("Number of Addresses" = n_distinct(address))
+
+
+kable(cbind(distinct_address)) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
+  scroll_box(width = "150px", height = "150px")
+
+
+```
+
+
+
+We can take a look at duplicated addresses. 
+
+We can do this very simply, even manually by creating a table with address and arranging
+alpha-numerically and taking a cursory look. 
+
+```{r}
+
+address_table <- officer %>% 
+  group_by(address) %>% 
+  count() %>% 
+  arrange(desc(n)) %>% 
+  rename(Address = address, Count = n) %>% 
+  arrange(Address)
+kable(address_table) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
+  scroll_box(width = "900px", height = "200px")
+
+
+```
+
+Already we can see that certain address have been calculated as multiple entries due to
+spacing, commas etc. 
+
+However, something to note here is the presence of over **12000 companies registered**
+at less than **170 unique addresses**. 
+
+***
+***
+***
+
+### Removal of Commas
+
+
+There seems to be a systematic set of errors taking place before the post code. 
+The presence of double commas is causing R to identify this as two different addresses. 
+
+
+Let's see if by removing these commas we can get a better feel for the actual number
+of unique addresses 
+
+```{r}
+
+officer_address_comma_removed <- officer
+
+officer_address_comma_removed$address <- as.character(gsub(",","", officer_address_comma_removed$address))
+```
+
+
+
+
+So the good news is that we were able to remove the commas from the address column
+
+The other good news is we were able to reduce our number of distinct addresses,
+
+
+the bad news is
+
+
+we only reduced it by **ONE** address. 
+
+
+
+```{r}
+
+new_address_count <- officer_address_comma_removed %>% 
+  summarise("Number of Addresses" = n_distinct(address))
+
+kable(new_address_count) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
+  scroll_box(width = "250px", height = "150px")
+
+```
+
+
+A slight let down, though I suppose I'm socially awkward and didn't know whether
+to lead with the bad news or good news first! 
+
+
+
+
+
+
+```{r}
+new_address_table <- officer_address_comma_removed %>% 
+  group_by(address) %>% 
+  count() %>% 
+  arrange(desc(n)) %>% 
+  rename(Address = address, Count = n) %>% 
+  arrange(Address)
+
+kable(new_address_table) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
+  scroll_box(width = "800px", height = "300px")
+```
+
+***
+***
+***
+
+
+### Postcodes
+
+While our attempt to look at entire addresses was futile maybe we can have a bit more luck
+looking at just the postcodes. 
+
+Let's see if there is we can access the postcode portion of the address. 
+
+While `regex` is not one of my areas of expertise, scrolling through stack overflow is. 
+
+I was able to find a snippet of code that I could apply on the address column to
+extract the UK postcode.
+
+We can output the post code in two parts
+
+- District
+- Street
+
+
+`na.omit()` had to be applied due to the fact that certain address were missing 
+post codes with the associated address.
+
+
+This appears to be another data entry error
+```{r}
+postcodes_extracted <- officer %>% 
+  extract(address, into = c('District', 'Street'), '(\\S{2,4})\\s*(\\d\\w\\w)') %>% 
+  na.omit() %>%
+  group_by(District) %>% 
+  count() %>% 
+  arrange(desc(n))
+
+kable(postcodes_extracted) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
+  scroll_box(width = "400px", height = "300px")
+```
+
+
+Its quite clear that the `regex` with the `extract` function has not worked as well 
+as I would have hoped. While its been effective for most entries there are a number
+that it did not extract properly. This is due to the errors in data entry and a lack of uniformity
+in format of postcode and address. we can still however, try and extract some inference from this
+with the knowledge that we do not have the complete picture. 
+
+
+We can plot the data!
+
+The fist chunk of code is the creation of a custom `ggplot2` theme as I really do not like majority of the 
+themes that come with `ggplot2`. 
+
+
+```{r, fig.width=9, fig.height=6}
+
+my_theme <-function(x) {
+theme(legend.position="right",
+   panel.background = element_rect(fill = '#FFFFFF'),
+   plot.background=element_rect(fill="#FFFFFF"),    
+   panel.grid.minor = element_blank(),
+   #panel.grid.minor = element_line(colour = "white"),
+   panel.grid.major = element_line(colour = "#4682B4"),
+   panel.grid.major.y = element_blank(),
+   panel.grid.major.x = element_blank(),
+   #panel.grid.minor = element_blank(),
+   plot.title=element_text(size = 15, 
+   face="bold", colour = "#4682B4", hjust = 0.5, lineheight = 1.2),  
+  plot.subtitle = element_text(size=15, colour = "#4682B4", face = "bold"),  
+  plot.caption  = element_text(size=13, colour = "#4682B4"),  
+  axis.title.x  = element_text(size=14, colour = "#4682B4", face = "bold",), 
+  axis.title.y  = element_text(size=14, colour = "#4682B4", face = "bold"),  
+  axis.text.x   = element_text(size=12, colour = "#4682B4", face = "bold"),  
+  axis.text.y   = element_text(size=12, colour ="#4682B4", hjust=1, face="bold"),
+  axis.line.x   = element_line(colour = "#4682B4", size=1, lineend = "butt"),
+  axis.line.y   = element_line(colour = "#4682B4", size=1),
+  axis.ticks.x  = element_line(colour = "#4682B4"),
+  axis.ticks.y  = element_line(colour = "#4682B4"))
+}
+
+
+
+postcodes_extracted %>%
+  ggplot(aes(reorder(District,n),n, fill = n))+
+  geom_col(stat="count",show.legend = FALSE) +
+    coord_flip() +
+  my_theme() +
+  labs(title = "Freq of Postcode by District",
+       x = "District",
+       y = "Count")
+
+
+
+```
+
+We can draw some inference from this, namely where most of the companie are located, however, 
+ analysis is crowed due to the presence of incorrectly extracted data due to errros in the regex. 
+
+
+
+
+***
+
+However, we can try another technique that hopefully should allow us to accurately 
+access the postcodes using a bit of enhanced `regex`
+
+
+Let's create a vector of postcode's `regex`
+```{r}
+pcd_regex = "[Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z])))) {0,1}[0-9][A-Za-z]{2})"
+```
+
+
+No we can apply that `pcd_regex` to  our column of addresses from our main data set
+```{r}
+post_code_vector <-regmatches(officer_address_comma_removed$address,
+                               regexpr(pcd_regex,officer_address_comma_removed$address))
+```
+
+
+Then we convert the vector into  a `data.frame`
+ 
+ 
+```{r}
+
+post_code_df <- data.frame(post_code_vector)
+
+```
+
+
+As we want to focus on the number of companies by district we will seperate the
+two parts of the postcode. 
+```{r, fig.height = 8, fig.width = 8, fig.caption = "New Improved Frequency Chart"}
+post_code_df <- separate(data = post_code_df,col = post_code_vector ,into =c("District","Street") ,sep = " ")
+
+# post_code_df %>%
+#    group_by(District) %>%
+#   tally() %>%
+#   ggplot(aes(reorder(District,n),n, fill = n))+
+#   geom_col(show.legend=FALSE) +
+#   coord_flip() +
+#   labs(title = "Freq of Postcode by District",
+#        x = "District",
+#        y = "Count") +
+#   my_hermit()
+```
+
+
+I have had to manually enter a jpeg image as the above code resulted in an incorrect ggplot. 
+While it works fine in the Rstudio script it was not dispalying correctly via the Rmarkdown knit. 
+
+Here we can see that most addresses are withing IM1, which is the district of Douglas. 
+There are more addresses registered in IM1 than there are in the other districts combined. 
+
+
+
+Let's see if we can stick these points on a map to give us a better idea of where most of the companies 
+are located 
+
+```{r}
+postcode_coords <- post_code_df %>%
+    group_by(District) %>%
+   tally() 
+
+postcode_coords
+
+
+```
+
+We will need to create vectors longitude and latitude which well then be combined into our dataframe with counts. 
+
+These were manually ascertained by estimating the approximate centre of the postcode area
+```{r}
+coords_vector_lat <-c(54.149386,54.167965,54.175867,54.197263,54.309931,54.319821,54.106551,54.141708) 
+coords_vector_long <- c(-4.480503,-4.478088,-4.445068,-4.542573,-4.459075,-4.395438,-4.697056,-4.559470)
+```
+
+then both vectors were added to the dataframe to give us a final dataframe with postcodes, counts, longtitude and latitude 
+
+```{r}
+postcode_coords <- cbind(postcode_coords,coords_vector_lat,coords_vector_long)
+```
+
+Then the data were plotted using `ggplot` and `ggrepel`
+
+
+
+```{r}
+library(ggrepel)
+gg <- ggplot(postcode_coords,aes(x =coords_vector_long , y = coords_vector_lat,size=n,col = n))+
+  geom_point()+
+  borders("world",regions ="Isle Of Man",fill = "grey",alpha =0.1,colour = "black")+
+  geom_text_repel(aes(label = District),size=4, col ="steelblue")+
+  theme_void()+
+  scale_color_viridis_c()+
+  labs(title = "Poor Man's Map of the Isle of Man",
+       subtitle = " Centre's correspond to approximate centres of postcode distrct",
+       col = "Count of Addresses",
+       size = "Size of Centre")
+
+gg
+
+```
+
+
+
+*** 
+***
+***
+
+
+## Concluding Remarks
+
+
+### Summary
+Here we have conducted some basic data cleaning tasks which allowed us to carry out a cursory
+and low resolution exploratory data analysis. 
+
+Major Points Gleaned: 
+
+
+
+- The dataset had 12824 entries, 12822 unique company numbers and 156 unique company names
+- Only 0.15% of the data set were incorporation agents 
+- First Names(Isle of Man) Limited was the most commonly listd company appearing 1251 times 
+- Majority of Companies were located in Douglas(IM1)
+- Oddly enough, IM99 does correspond to an extact location (Not sure if this an error in the dataset and on google)
+
+
+
+We were able to identify some errors 
+
+- Blank fields (headers did not correspond to data)
+- Duplication of companies 
+- Inconsistent formatting of address column
+- Incomplete addresses (missing post codes)
+
+
+
+
+
+
+
+
+### Lessons Learned
+
+- Tidyverse and basic R function at times have incompatiability. I've come across this before in the
+`caret` package but also with the `cbind` function there were some issues. 
+
+- **Updating Packages** Very important to be mindful of how and when packages are updated. 
+This is especially crucial when dealing with the tidyverse, its very important to ensure that
+ packages are updated to across the board to ensure functionality. 
+
+- It may be high time be time to learn the `SF` and `leaflet` packages to improve geo-spatial plotting. 
+
+
+#### More
+
+
+
+- The regex extraction carried out the second time also resulted in variable success across the data set. It left almost 1000 rows missing, this is in partly due to some addresses missing postcodes while other's postcodes may not have been extracted properly. If this had not been the case the postcodes could have been combined with the original dataframe. This would have opened up significantly more oppurtunities to delve deeper into the dataset
+
+
+- If the characters at of the end of `company_number` could be extracted this would allow us to uncover a pattern between the character at the end of the number and its location or associated `position`
+
+
+- To accurately plot ALL companies by postcode on an improved and asthetically pleasing map grid. 
+

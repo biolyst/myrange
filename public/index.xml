@@ -1,19 +1,73 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Under Construction</title>
+    <title>Productive Procastination</title>
     <link>https://biolysthome.netlify.app/</link>
-    <description>Recent content on Under Construction</description>
+    <description>Recent content on Productive Procastination</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://biolysthome.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://biolysthome.netlify.app/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Visualising DNA Mismatch Distributions</title>
-      <link>https://biolysthome.netlify.app/post/2020-10-22-visualising-dna-mismatch-distributions/</link>
+      <title>R Script Automation on Windows </title>
+      <link>https://biolysthome.netlify.app/post/2020-12-19-r-script-automation-on-windows/</link>
+      <pubDate>Sat, 19 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://biolysthome.netlify.app/post/2020-12-19-r-script-automation-on-windows/</guid>
+      <description>Automation made simple Automation of R scripts is an incredibly powerful tool to have at your disposal. In its simplest form, the ease by which you can automate an R script is almost laughable.
+You do not need much to start. You will need an R script of your choice, here I give a fun yet largely useless example. You will need a text editor (notepad will do fine) to create your batch file.</description>
+    </item>
+    
+    <item>
+      <title>Visualising an important lesson</title>
+      <link>https://biolysthome.netlify.app/post/2020-11-01-visualising-an-important-lesson/</link>
+      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://biolysthome.netlify.app/post/2020-11-01-visualising-an-important-lesson/</guid>
+      <description>Libraries # Thank you to Gary Hutson for the below function install_or_load_pack &amp;lt;- function(pack){ create.pkg &amp;lt;- pack[!(pack %in% installed.packages()[, &amp;#34;Package&amp;#34;])] if (length(create.pkg)) install.packages(create.pkg, dependencies = TRUE) sapply(pack, require, character.only = TRUE) } # Next you need to bring in the relevant libraries.  packages &amp;lt;-c(&amp;#34;tidyverse&amp;#34;,&amp;#39;ggthemes&amp;#39;,&amp;#34;gganimate&amp;#34;) install_or_load_pack(packages) ## tidyverse ggthemes gganimate ## TRUE TRUE TRUEGenerate Data principal &amp;lt;- 50 r &amp;lt;- .05 df &amp;lt;- NULL for ( i in 1:50){ principal &amp;lt;- round(principal *(1+r)) df &amp;lt;- rbind(df,principal - 50) } df &amp;lt;- as.</description>
+    </item>
+    
+    <item>
+      <title>Aginity Inspired Generator</title>
+      <link>https://biolysthome.netlify.app/post/2020-10-23-aginity-inspired-generator/</link>
+      <pubDate>Fri, 23 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://biolysthome.netlify.app/post/2020-10-23-aginity-inspired-generator/</guid>
+      <description>A random random gen This was inspired by Aginity&amp;rsquo;s tab name format.
+Load &amp;lsquo;em up You can thank Gary Hutson for the below method of loading and or installing packages
+install_or_load_pack &amp;lt;- function(pack){ create.pkg &amp;lt;- pack[!(pack %in% installed.packages()[, &amp;#34;Package&amp;#34;])] if (length(create.pkg)) install.packages(create.pkg, dependencies = TRUE) sapply(pack, require, character.only = TRUE) } packages &amp;lt;- c(&amp;#34;randomNames&amp;#34;,&amp;#34;Hmisc&amp;#34;) install_or_load_pack(packages) The Code block name_generator &amp;lt;- function(selection_pool, final_selection) { col &amp;lt;- colours(distinct = TRUE) col &amp;lt;- gsub(&amp;#39;[[:digit:]]+&amp;#39;, &amp;#39;&amp;#39;, col) col &amp;lt;- unique(col) col &amp;lt;- Hmisc::capitalize(col) my_name &amp;lt;- sub(&amp;#34;\\s.</description>
+    </item>
+    
+    <item>
+      <title>Data Analysis Test from Open Corporates</title>
+      <link>https://biolysthome.netlify.app/post/2020-10-22-data-analysis-test-from-open-corporates/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://biolysthome.netlify.app/post/2020-10-22-visualising-dna-mismatch-distributions/</guid>
-      <description>Why Mismatch distributionsThe distribution of pairwise genetic difference (also referred to as mismatch distribution) is the distribution of the number of difference between pairs of haplotypes. It can be used to gain insight into demographic history. Populations at the demographic equilibrium threshold display multimodality. While populations lacking stability (recent expansion) display unimodality (Slatkin and Hudson 1991)- From some of my currently unpublished work
-House KeepingJust a heads up,</description>
+      <guid>https://biolysthome.netlify.app/post/2020-10-22-data-analysis-test-from-open-corporates/</guid>
+      <description>Introduction As per application requirements I will be analysing the data set in accordance with prescribed guidelines.
+There are three major points to adhere to:
+div.grey { background-color:#3d4849; border-radius: 5px; padding: 20px;} Identify 3-5 interesting facts from the data set Identify at least 3 of the errors within the data set Explain rationale and methodology via code chunks and prose.   Tabset is incompatible with Hugo, so this is one LONG scroll.</description>
+    </item>
+    
+    <item>
+      <title>DNA Mismatch Distributions</title>
+      <link>https://biolysthome.netlify.app/post/2020-10-22-dna-mismatch-distributions/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://biolysthome.netlify.app/post/2020-10-22-dna-mismatch-distributions/</guid>
+      <description>Why Mismatch distributions    The distribution of pairwise genetic difference (also referred to as mismatch distribution) is the distribution of the number of difference between pairs of haplotypes. It can be used to gain insight into demographic history. Populations at the demographic equilibrium threshold display multimodality. While populations lacking stability (recent expansion) display unimodality (Slatkin and Hudson 1991)
+ From some of my currently unpublished work     House Keeping Just a heads up,</description>
+    </item>
+    
+    <item>
+      <title>Internet Search Volume: A Proxy</title>
+      <link>https://biolysthome.netlify.app/post/2020-10-22-internet-search-volume-a-proxy/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://biolysthome.netlify.app/post/2020-10-22-internet-search-volume-a-proxy/</guid>
+      <description>Introduction Internet search volume and web page hits can provide interesting insights into the collective unconscious (read the minds of bored 20 - somethings on furlough)
+This is nice quick introduction to two straight forward packages, googletrendsR and wikipediatrend.
+There will also be a cursory flirt with Facebook&amp;rsquo;s Prophet, a forecasting package.
+So lets call in our libraries
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ options(scipen = 999) library(gtrendsR) library(tidyverse) library(ggcharts) library(ggsci) library(ggthemes) Google Trends The query requires a few different arguments which we can define before hand.</description>
     </item>
     
     <item>
@@ -24,19 +78,6 @@
       <guid>https://biolysthome.netlify.app/post/2020-10-16-almost-done/</guid>
       <description>Header 1This is some text
 Header2head(mtcars)## mpg cyl disp hp drat wt qsec vs am gear carb## Mazda RX4 21.0 6 160 110 3.90 2.620 16.46 0 1 4 4## Mazda RX4 Wag 21.0 6 160 110 3.90 2.875 17.02 0 1 4 4## Datsun 710 22.8 4 108 93 3.85 2.320 18.61 1 1 4 1## Hornet 4 Drive 21.4 6 258 110 3.</description>
-    </item>
-    
-    <item>
-      <title>Internet Searches and Wikipedia Hits</title>
-      <link>https://biolysthome.netlify.app/post/2020-10-16-internet-searches-and-wikipedia-hits/</link>
-      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://biolysthome.netlify.app/post/2020-10-16-internet-searches-and-wikipedia-hits/</guid>
-      <description>IntroductionInternet search volume and web page hits can provide interesting insights into the collective unconscious (read the minds of bored 20 - somethings on furlough)
-This is nice quick introduction to two straight forward packages, googletrendsR and wikipediatrend.
-There will also be a cursory flirt with Facebook’s Prophet, a forecasting package.
-So lets call in our libraries
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~options(scipen = 999)library(gtrendsR)library(tidyverse)library(ggcharts)library(ggsci)library(ggthemes)Google TrendsThe query requires a few different arguments which we can define before hand.</description>
     </item>
     
     <item>

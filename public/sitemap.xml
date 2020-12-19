@@ -3,6 +3,61 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://biolysthome.netlify.app/categories/automation/</loc>
+    <lastmod>2020-12-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/categories/</loc>
+    <lastmod>2020-12-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/post/</loc>
+    <lastmod>2020-12-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/</loc>
+    <lastmod>2020-12-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/categories/programming/</loc>
+    <lastmod>2020-12-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/categories/r/</loc>
+    <lastmod>2020-12-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/post/2020-12-19-r-script-automation-on-windows/</loc>
+    <lastmod>2020-12-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/categories/ggplot2/</loc>
+    <lastmod>2020-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/post/2020-11-01-visualising-an-important-lesson/</loc>
+    <lastmod>2020-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/post/2020-10-23-aginity-inspired-generator/</loc>
+    <lastmod>2020-10-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://biolysthome.netlify.app/tags/analysis/</loc>
+    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://biolysthome.netlify.app/tags/biology/</loc>
     <lastmod>2020-10-22T00:00:00+00:00</lastmod>
   </url>
@@ -13,27 +68,17 @@
   </url>
   
   <url>
-    <loc>https://biolysthome.netlify.app/categories/</loc>
+    <loc>https://biolysthome.netlify.app/post/2020-10-22-data-analysis-test-from-open-corporates/</loc>
     <lastmod>2020-10-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://biolysthome.netlify.app/categories/ggplot2/</loc>
+    <loc>https://biolysthome.netlify.app/post/2020-10-22-dna-mismatch-distributions/</loc>
     <lastmod>2020-10-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://biolysthome.netlify.app/post/</loc>
-    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/tags/programming/</loc>
-    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/categories/programming/</loc>
+    <loc>https://biolysthome.netlify.app/post/2020-10-22-internet-search-volume-a-proxy/</loc>
     <lastmod>2020-10-22T00:00:00+00:00</lastmod>
   </url>
   
@@ -43,47 +88,12 @@
   </url>
   
   <url>
-    <loc>https://biolysthome.netlify.app/</loc>
-    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/post/2020-10-22-visualising-dna-mismatch-distributions/</loc>
-    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://biolysthome.netlify.app/post/2020-10-16-almost-done/</loc>
     <lastmod>2020-10-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://biolysthome.netlify.app/tags/analysis/</loc>
-    <lastmod>2020-10-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/categories/googletrends/</loc>
-    <lastmod>2020-10-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/post/2020-10-16-internet-searches-and-wikipedia-hits/</loc>
-    <lastmod>2020-10-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://biolysthome.netlify.app/post/2020-10-16-open-coroporates-test/</loc>
-    <lastmod>2020-10-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/categories/prophet/</loc>
-    <lastmod>2020-10-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://biolysthome.netlify.app/categories/r/</loc>
     <lastmod>2020-10-16T00:00:00+00:00</lastmod>
   </url>
   

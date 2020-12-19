@@ -1,62 +1,53 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Under Construction</title>
+    <title>Categories on Productive Procastination</title>
     <link>https://biolysthome.netlify.app/categories/</link>
-    <description>Recent content in Categories on Under Construction</description>
+    <description>Recent content in Categories on Productive Procastination</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://biolysthome.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://biolysthome.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>biology</title>
-      <link>https://biolysthome.netlify.app/categories/biology/</link>
-      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      <title>Automation</title>
+      <link>https://biolysthome.netlify.app/categories/automation/</link>
+      <pubDate>Sat, 19 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://biolysthome.netlify.app/categories/biology/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ggplot2</title>
-      <link>https://biolysthome.netlify.app/categories/ggplot2/</link>
-      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://biolysthome.netlify.app/categories/ggplot2/</guid>
+      <guid>https://biolysthome.netlify.app/categories/automation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>programming</title>
       <link>https://biolysthome.netlify.app/categories/programming/</link>
-      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 19 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://biolysthome.netlify.app/categories/programming/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>googletrends</title>
-      <link>https://biolysthome.netlify.app/categories/googletrends/</link>
-      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://biolysthome.netlify.app/categories/googletrends/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>prophet</title>
-      <link>https://biolysthome.netlify.app/categories/prophet/</link>
-      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://biolysthome.netlify.app/categories/prophet/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>R</title>
       <link>https://biolysthome.netlify.app/categories/r/</link>
-      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 19 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://biolysthome.netlify.app/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ggplot2</title>
+      <link>https://biolysthome.netlify.app/categories/ggplot2/</link>
+      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://biolysthome.netlify.app/categories/ggplot2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>biology</title>
+      <link>https://biolysthome.netlify.app/categories/biology/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://biolysthome.netlify.app/categories/biology/</guid>
       <description></description>
     </item>
     

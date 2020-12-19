@@ -1,24 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R Markdown on Under Construction</title>
+    <title>R Markdown on Productive Procastination</title>
     <link>https://biolysthome.netlify.app/tags/r-markdown/</link>
-    <description>Recent content in R Markdown on Under Construction</description>
+    <description>Recent content in R Markdown on Productive Procastination</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://biolysthome.netlify.app/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Internet Searches and Wikipedia Hits</title>
-      <link>https://biolysthome.netlify.app/post/2020-10-16-internet-searches-and-wikipedia-hits/</link>
-      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://biolysthome.netlify.app/post/2020-10-16-internet-searches-and-wikipedia-hits/</guid>
-      <description>IntroductionInternet search volume and web page hits can provide interesting insights into the collective unconscious (read the minds of bored 20 - somethings on furlough)
-This is nice quick introduction to two straight forward packages, googletrendsR and wikipediatrend.
-There will also be a cursory flirt with Facebook’s Prophet, a forecasting package.
-So lets call in our libraries
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~options(scipen = 999)library(gtrendsR)library(tidyverse)library(ggcharts)library(ggsci)library(ggthemes)Google TrendsThe query requires a few different arguments which we can define before hand.</description>
-    </item>
-    
     <item>
       <title>Open Coroporates Test</title>
       <link>https://biolysthome.netlify.app/post/2020-10-16-open-coroporates-test/</link>

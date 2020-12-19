@@ -1,19 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>programming on Under Construction</title>
+    <title>programming on Productive Procastination</title>
     <link>https://biolysthome.netlify.app/categories/programming/</link>
-    <description>Recent content in programming on Under Construction</description>
+    <description>Recent content in programming on Productive Procastination</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://biolysthome.netlify.app/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://biolysthome.netlify.app/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Visualising DNA Mismatch Distributions</title>
-      <link>https://biolysthome.netlify.app/post/2020-10-22-visualising-dna-mismatch-distributions/</link>
+      <title>R Script Automation on Windows </title>
+      <link>https://biolysthome.netlify.app/post/2020-12-19-r-script-automation-on-windows/</link>
+      <pubDate>Sat, 19 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://biolysthome.netlify.app/post/2020-12-19-r-script-automation-on-windows/</guid>
+      <description>Automation made simple Automation of R scripts is an incredibly powerful tool to have at your disposal. In its simplest form, the ease by which you can automate an R script is almost laughable.
+You do not need much to start. You will need an R script of your choice, here I give a fun yet largely useless example. You will need a text editor (notepad will do fine) to create your batch file.</description>
+    </item>
+    
+    <item>
+      <title>Aginity Inspired Generator</title>
+      <link>https://biolysthome.netlify.app/post/2020-10-23-aginity-inspired-generator/</link>
+      <pubDate>Fri, 23 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://biolysthome.netlify.app/post/2020-10-23-aginity-inspired-generator/</guid>
+      <description>A random random gen This was inspired by Aginity&amp;rsquo;s tab name format.
+Load &amp;lsquo;em up You can thank Gary Hutson for the below method of loading and or installing packages
+install_or_load_pack &amp;lt;- function(pack){ create.pkg &amp;lt;- pack[!(pack %in% installed.packages()[, &amp;#34;Package&amp;#34;])] if (length(create.pkg)) install.packages(create.pkg, dependencies = TRUE) sapply(pack, require, character.only = TRUE) } packages &amp;lt;- c(&amp;#34;randomNames&amp;#34;,&amp;#34;Hmisc&amp;#34;) install_or_load_pack(packages) The Code block name_generator &amp;lt;- function(selection_pool, final_selection) { col &amp;lt;- colours(distinct = TRUE) col &amp;lt;- gsub(&amp;#39;[[:digit:]]+&amp;#39;, &amp;#39;&amp;#39;, col) col &amp;lt;- unique(col) col &amp;lt;- Hmisc::capitalize(col) my_name &amp;lt;- sub(&amp;#34;\\s.</description>
+    </item>
+    
+    <item>
+      <title>DNA Mismatch Distributions</title>
+      <link>https://biolysthome.netlify.app/post/2020-10-22-dna-mismatch-distributions/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://biolysthome.netlify.app/post/2020-10-22-visualising-dna-mismatch-distributions/</guid>
-      <description>Why Mismatch distributionsThe distribution of pairwise genetic difference (also referred to as mismatch distribution) is the distribution of the number of difference between pairs of haplotypes. It can be used to gain insight into demographic history. Populations at the demographic equilibrium threshold display multimodality. While populations lacking stability (recent expansion) display unimodality (Slatkin and Hudson 1991)- From some of my currently unpublished work
-House KeepingJust a heads up,</description>
+      <guid>https://biolysthome.netlify.app/post/2020-10-22-dna-mismatch-distributions/</guid>
+      <description>Why Mismatch distributions    The distribution of pairwise genetic difference (also referred to as mismatch distribution) is the distribution of the number of difference between pairs of haplotypes. It can be used to gain insight into demographic history. Populations at the demographic equilibrium threshold display multimodality. While populations lacking stability (recent expansion) display unimodality (Slatkin and Hudson 1991)
+ From some of my currently unpublished work     House Keeping Just a heads up,</description>
     </item>
     
   </channel>

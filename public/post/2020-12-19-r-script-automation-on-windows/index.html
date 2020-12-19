@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>R Script Automation on Windows  // Productive Procastination</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.76.5" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Under " />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://biolysthome.netlify.app/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="R Script Automation on Windows "/>
+<meta name="twitter:description" content="Automation made simple Automation of R scripts is an incredibly powerful tool to have at your disposal. In its simplest form, the ease by which you can automate an R script is almost laughable.
+You do not need much to start. You will need an R script of your choice, here I give a fun yet largely useless example. You will need a text editor (notepad will do fine) to create your batch file."/>
+
+    <meta property="og:title" content="R Script Automation on Windows " />
+<meta property="og:description" content="Automation made simple Automation of R scripts is an incredibly powerful tool to have at your disposal. In its simplest form, the ease by which you can automate an R script is almost laughable.
+You do not need much to start. You will need an R script of your choice, here I give a fun yet largely useless example. You will need a text editor (notepad will do fine) to create your batch file." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://biolysthome.netlify.app/post/2020-12-19-r-script-automation-on-windows/" />
+<meta property="article:published_time" content="2020-12-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-12-19T00:00:00+00:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://biolysthome.netlify.app/"><img class="app-header-avatar" src="/avatar.jpg" alt="Under " /></a>
+      <h1>Productive Procastination</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+      </nav>
+      <p>A Biologist Wandering the World of Analytics.</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/gohugoio" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="https://twitter.com/gohugoio" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">R Script Automation on Windows </h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Dec 19, 2020
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          2 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h2 id="automation-made-simple">Automation made simple</h2>
+<p>Automation of R scripts is an incredibly powerful tool to have at your disposal. 
+In its simplest form, the ease by which you can automate an R script is almost laughable.</p>
+<p>You do not need much to start. You will need an R script of your choice, here I give a fun yet largely useless example. 
+You will need a text editor (notepad will do fine) to create your batch file.</p>
+<p><em>Also you must have administrator privileges to execute this file as it executes in command prompt.</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#50fa7b">setwd</span>(<span style="color:#f1fa8c">&#34;C:\\Location\\of\\Choice&#34;</span>)
+
+
+<span style="color:#6272a4"># Thank you to Gary Hutson for the below function</span>
+install_or_load_pack <span style="color:#ff79c6">&lt;-</span> <span style="color:#50fa7b">function</span>(pack){
+
+  create.pkg <span style="color:#ff79c6">&lt;-</span> pack[<span style="color:#ff79c6">!</span>(pack <span style="color:#ff79c6">%in%</span> <span style="color:#50fa7b">installed.packages</span>()[, <span style="color:#f1fa8c">&#34;Package&#34;</span>])]
+
+  <span style="color:#50fa7b">if </span>(<span style="color:#50fa7b">length</span>(create.pkg))
+
+    <span style="color:#50fa7b">install.packages</span>(create.pkg, dependencies <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">TRUE</span>)
+
+  <span style="color:#50fa7b">sapply</span>(pack, require, character.only <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">TRUE</span>)
+  
+}
+
+<span style="color:#6272a4"># Next you need to bring in the relevant libraries. </span>
+
+packages <span style="color:#ff79c6">&lt;-</span><span style="color:#50fa7b">c</span>(<span style="color:#f1fa8c">&#34;dplyr&#34;</span>,<span style="color:#f1fa8c">&#39;wikipediatrend&#39;</span>,<span style="color:#f1fa8c">&#34;lubridate&#34;</span>, <span style="color:#f1fa8c">&#34;ggplot2&#34;</span>)
+
+<span style="color:#50fa7b">install_or_load_pack</span>(packages)
+
+<span style="color:#50fa7b">options</span>(scipen <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">999</span>)
+
+<span style="color:#6272a4"># Create Dynamic Date Ranges</span>
+today <span style="color:#ff79c6">&lt;-</span> <span style="color:#50fa7b">Sys.Date</span>()
+week_from_today <span style="color:#ff79c6">&lt;-</span>  <span style="color:#50fa7b">Sys.Date</span>()<span style="color:#bd93f9">-10</span>
+<span style="color:#6272a4"># Create search term for page</span>
+cyberpunk <span style="color:#ff79c6">&lt;-</span> <span style="color:#f1fa8c">&#39;Cyberpunk_2077&#39;</span>
+<span style="color:#6272a4"># create the query</span>
+wiki_search <span style="color:#ff79c6">&lt;-</span> <span style="color:#50fa7b">wp_trend</span>(page <span style="color:#ff79c6">=</span> cyberpunk ,
+         from <span style="color:#ff79c6">=</span> week_from_today,
+         to <span style="color:#ff79c6">=</span> today)
+wiki_search <span style="color:#ff79c6">&lt;-</span>  <span style="color:#50fa7b">as_tibble</span>(wiki_search)
+ wiki_search <span style="color:#ff79c6">&lt;-</span> wiki_search <span style="color:#ff79c6">%&gt;%</span> 
+  <span style="color:#50fa7b">mutate</span>(date <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">date</span>(date),day <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">day</span>(date))
+views_plot <span style="color:#ff79c6">&lt;-</span> wiki_search <span style="color:#ff79c6">%&gt;%</span> 
+  <span style="color:#50fa7b">ggplot</span>(<span style="color:#50fa7b">aes</span>(date,views,col<span style="color:#ff79c6">=</span>article)) <span style="color:#ff79c6">+</span>
+  <span style="color:#50fa7b">geom_point</span>(size<span style="color:#ff79c6">=</span><span style="color:#bd93f9">4</span>,col<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;orange&#39;</span>,alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.3</span>)<span style="color:#ff79c6">+</span>
+  <span style="color:#50fa7b">geom_line</span>(size<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>,show.legend<span style="color:#ff79c6">=</span><span style="color:#ff79c6">FALSE</span>)<span style="color:#ff79c6">+</span>
+  <span style="color:#50fa7b">theme_minimal</span>() <span style="color:#ff79c6">+</span>
+  <span style="color:#50fa7b">scale_y_continuous</span>(labels <span style="color:#ff79c6">=</span> scales<span style="color:#ff79c6">::</span>comma)<span style="color:#ff79c6">+</span>
+  <span style="color:#50fa7b">scale_color_viridis_d</span>() <span style="color:#ff79c6">+</span>
+  <span style="color:#50fa7b">labs</span>(title <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Cyberpunk_2077 Wikipedia Page Last 10 Days&#39;</span>)
+
+
+<span style="color:#50fa7b">ggsave</span>(filename <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">paste</span>(<span style="color:#f1fa8c">&#34;C:\\Location\\of\\Choice\\&#34;</span>,<span style="color:#50fa7b">Sys.Date</span>(),<span style="color:#f1fa8c">&#39;cyberpunk_views.png&#39;</span>,sep <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;_&#34;</span>))
+</code></pre></div><p>Once you have done this, you will then also save your R script in the same folder.</p>
+<h2 id="the-batch-file">The Batch File</h2>
+<p>The batch file will be saved in the same folder as where you have saved your R script and your ggplot2 output using ggsave</p>
+<p>The batch file it self will only contain the following lines of code and must be saved as <code>.bat</code></p>
+<p><img src="C:%5CUsers%5Cald04%5CDocuments%5Cmyrange%5Ccontent%5Cpost%5C2020-12-19-r-script-automation-on-windows%5Ccode.png" alt="Code Snippet"></p>
+<pre><code class="language-[r,eval=FALSE]" data-lang="[r,eval=FALSE]">
+@echo off
+C:
+PATH &quot;C:\Program Files\R\R-3.6.2\bin\x64&quot;
+cd C:\Location\of\Choice
+Rscript NameOfScript.R
+
+pause
+
+</code></pre><p>The <code>PATH</code> is directed to where R is installed
+The change directory (cd) command takes you to where you saved your R script and the output.</p>
+<h3 id="windows-task-scheduler">Windows Task Scheduler</h3>
+<p>Now that we have the R script and the batch file ready, its time to get into windows task scheduler.</p>
+<p>On the right hand side, under <code>Actions</code> select <code>Create Task</code></p>
+<p>Under <code>General</code> give it an appropriate name</p>
+<p>Under <code>Triggers</code> select <code>New</code> and choose your time frame</p>
+<p>Under <code>Actions</code> select <code>New</code>, choose the <code>Start a Program</code> option and then browse to find the <code>.bat</code> file you created</p>
+<p>Simple as that, you&rsquo;ve automated your first R script.</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

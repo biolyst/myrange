@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>biology on Under Construction</title>
+    <title>biology on Productive Procastination</title>
     <link>https://biolysthome.netlify.app/tags/biology/</link>
-    <description>Recent content in biology on Under Construction</description>
+    <description>Recent content in biology on Productive Procastination</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://biolysthome.netlify.app/tags/biology/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Visualising DNA Mismatch Distributions</title>
-      <link>https://biolysthome.netlify.app/post/2020-10-22-visualising-dna-mismatch-distributions/</link>
+      <title>DNA Mismatch Distributions</title>
+      <link>https://biolysthome.netlify.app/post/2020-10-22-dna-mismatch-distributions/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://biolysthome.netlify.app/post/2020-10-22-visualising-dna-mismatch-distributions/</guid>
-      <description>Why Mismatch distributionsThe distribution of pairwise genetic difference (also referred to as mismatch distribution) is the distribution of the number of difference between pairs of haplotypes. It can be used to gain insight into demographic history. Populations at the demographic equilibrium threshold display multimodality. While populations lacking stability (recent expansion) display unimodality (Slatkin and Hudson 1991)- From some of my currently unpublished work
-House KeepingJust a heads up,</description>
+      <guid>https://biolysthome.netlify.app/post/2020-10-22-dna-mismatch-distributions/</guid>
+      <description>Why Mismatch distributions    The distribution of pairwise genetic difference (also referred to as mismatch distribution) is the distribution of the number of difference between pairs of haplotypes. It can be used to gain insight into demographic history. Populations at the demographic equilibrium threshold display multimodality. While populations lacking stability (recent expansion) display unimodality (Slatkin and Hudson 1991)
+ From some of my currently unpublished work     House Keeping Just a heads up,</description>
     </item>
     
   </channel>

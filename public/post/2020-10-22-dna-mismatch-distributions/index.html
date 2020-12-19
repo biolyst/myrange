@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>DNA Mismatch Distributions // Productive Procastination</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.76.5" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Under " />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://biolysthome.netlify.app/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="DNA Mismatch Distributions"/>
+<meta name="twitter:description" content="Why Mismatch distributions    The distribution of pairwise genetic difference (also referred to as mismatch distribution) is the distribution of the number of difference between pairs of haplotypes. It can be used to gain insight into demographic history. Populations at the demographic equilibrium threshold display multimodality. While populations lacking stability (recent expansion) display unimodality (Slatkin and Hudson 1991)
+ From some of my currently unpublished work     House Keeping Just a heads up,"/>
+
+    <meta property="og:title" content="DNA Mismatch Distributions" />
+<meta property="og:description" content="Why Mismatch distributions    The distribution of pairwise genetic difference (also referred to as mismatch distribution) is the distribution of the number of difference between pairs of haplotypes. It can be used to gain insight into demographic history. Populations at the demographic equilibrium threshold display multimodality. While populations lacking stability (recent expansion) display unimodality (Slatkin and Hudson 1991)
+ From some of my currently unpublished work     House Keeping Just a heads up," />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://biolysthome.netlify.app/post/2020-10-22-dna-mismatch-distributions/" />
+<meta property="article:published_time" content="2020-10-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-22T00:00:00+00:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://biolysthome.netlify.app/"><img class="app-header-avatar" src="/avatar.jpg" alt="Under " /></a>
+      <h1>Productive Procastination</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+      </nav>
+      <p>A Biologist Wandering the World of Analytics.</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/gohugoio" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="https://twitter.com/gohugoio" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">DNA Mismatch Distributions</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Oct 22, 2020
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          3 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
+</svg>
+              <a class="tag" href="https://biolysthome.netlify.app/tags/analysis/">analysis</a>
+              <a class="tag" href="https://biolysthome.netlify.app/tags/biology/">biology</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h2 id="why-mismatch-distributions">Why Mismatch distributions</h2>
+<hr>
+<hr>
+<hr>
+<p><em>The distribution of pairwise genetic difference (also referred to as mismatch distribution)  is the distribution of the number of difference between pairs of haplotypes. It can be used to gain insight into demographic history. Populations at the demographic equilibrium threshold display multimodality. While populations lacking stability (recent expansion) display unimodality (Slatkin and Hudson 1991)</em></p>
+<ul>
+<li>From some of my currently unpublished work</li>
+</ul>
+<hr>
+<hr>
+<hr>
+<h2 id="house-keeping">House Keeping</h2>
+<p>Just a heads up,</p>
+<p>I won&rsquo;t be getting into the creation of a sequence alignment (that you would need to use to calculate Mismatch Distributions) or all the ramifications of and reasons for conducting such an analysis.</p>
+<p>This has been created to work with  <strong>DnaSP version 6.12.03</strong>.</p>
+<p><strong>IMPORTANT: I suggest creating a new folder for outputting your DnaSP .out files.</strong></p>
+<h2 id="prepping-files">Prepping Files</h2>
+<p>Get your alignment opened up in DnaSp.</p>
+<p>Select the <code>Analysis</code> tab and then click on <code>Population Size Changes</code>. 
+I left all settings as default and let it run, run times will vary depending on the size of your
+alignment.</p>
+<p>Once the run is complete</p>
+<p>Go to <code>File</code> and choose <code>Save Current Output</code>.</p>
+<p>Choose a folder that you can easily navigate to, or preferably within the RStudio project you
+created.</p>
+<p>What is really important is that you choose informative file names with a consistent format. 
+This is important and this will be used as titles in the plots later on.</p>
+<ul>
+<li>The format I like is : <code>Location_Species_Gene_NumberOfSamples</code></li>
+</ul>
+<p>Whatever you do, make it informative and consistent. This is a good rule for file names in 
+general.</p>
+<p><strong>You wouldn&rsquo;t call your dogs, Dog1 and Dog2</strong></p>
+<p>Do this for each of your alignments. This script gets all the more useful the more files you have.</p>
+<h2 id="the-code">The code</h2>
+<h3 id="the-bulk-of-it-is-in-this-for-loop">The bulk of it is in this for loop</h3>
+<p><img src="/post/2020-10-22-visualising-dna-mismatch-distributions/dnasploop.png" alt=""></p>
+<p>There are comments in there which should help explain logic</p>
+<p>Have fun</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#6272a4"># Either set the working directory to where the files have been saved</span>
+<span style="color:#6272a4"># Or preferably create a new project in R Studio. </span>
+<span style="color:#6272a4"># setwd(&#34;C:\\X\\Y\\Z\\&#34;)</span>
+<span style="color:#6272a4"># Thank you to Gary Hutson for the below function</span>
+install_or_load_pack <span style="color:#ff79c6">&lt;-</span> <span style="color:#50fa7b">function</span>(pack){
+
+  create.pkg <span style="color:#ff79c6">&lt;-</span> pack[<span style="color:#ff79c6">!</span>(pack <span style="color:#ff79c6">%in%</span> <span style="color:#50fa7b">installed.packages</span>()[, <span style="color:#f1fa8c">&#34;Package&#34;</span>])]
+
+  <span style="color:#50fa7b">if </span>(<span style="color:#50fa7b">length</span>(create.pkg))
+
+    <span style="color:#50fa7b">install.packages</span>(create.pkg, dependencies <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">TRUE</span>)
+
+  <span style="color:#50fa7b">sapply</span>(pack, require, character.only <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">TRUE</span>)
+  
+}
+
+<span style="color:#6272a4"># Next you need to bring in the relevant libraries. </span>
+
+packages <span style="color:#ff79c6">&lt;-</span><span style="color:#50fa7b">c</span>(<span style="color:#f1fa8c">&#34;readr&#34;</span>,<span style="color:#f1fa8c">&#34;ggplot2&#34;</span>,<span style="color:#f1fa8c">&#34;magrittr&#34;</span>,<span style="color:#f1fa8c">&#34;dplyr&#34;</span>,<span style="color:#f1fa8c">&#34;cowplot&#34;</span>,<span style="color:#f1fa8c">&#34;purrr&#34;</span>)
+
+<span style="color:#50fa7b">install_or_load_pack</span>(packages)
+
+
+
+<span style="color:#6272a4"># Find files that match file extension</span>
+(out_files <span style="color:#ff79c6">&lt;-</span> <span style="color:#50fa7b">dir</span>(pattern <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;*.out&#34;</span>))
+
+<span style="color:#6272a4"># Create an empty list for filling</span>
+df <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">vector</span>(mode <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;list&#39;</span>)
+
+<span style="color:#6272a4"># Read in files, rename and write as csv</span>
+<span style="color:#50fa7b">for </span>( i in <span style="color:#50fa7b">seq_along</span>(out_files)){
+  df[[i]] <span style="color:#ff79c6">&lt;-</span> <span style="color:#50fa7b">read.table</span>(out_files[i], skip <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">45</span>, 
+                        col.names <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">c</span>(<span style="color:#f1fa8c">&#34;Differences&#34;</span>, <span style="color:#f1fa8c">&#34;FreqObs&#34;</span>, <span style="color:#f1fa8c">&#34;FreqExp&#34;</span>))
+  out_files[i] <span style="color:#ff79c6">&lt;-</span> <span style="color:#50fa7b">gsub</span>(<span style="color:#f1fa8c">&#34;*.out&#34;</span>,<span style="color:#f1fa8c">&#34;&#34;</span>, out_files[i])
+  <span style="color:#50fa7b">write_csv</span>(df[[i]], path <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">paste0</span>(out_files[i], <span style="color:#f1fa8c">&#39;.csv&#39;</span>))
+}
+
+
+<span style="color:#6272a4"># At this point you can check your folder that you have pointed RStudio to</span>
+<span style="color:#6272a4"># and you will see CSV files with the exact same name as what you selected </span>
+<span style="color:#6272a4"># when saving from DnaSP</span>
+
+
+<span style="color:#6272a4"># Define This function from (https://stackoverflow.com/users/5088194/leerssej)</span>
+<span style="color:#6272a4"># This will help for reading in the CSVs with corresponding file names</span>
+read_plus <span style="color:#ff79c6">&lt;-</span> <span style="color:#50fa7b">function</span>(flnm) {
+    <span style="color:#50fa7b">read_csv</span>(flnm) <span style="color:#ff79c6">%&gt;%</span> 
+        <span style="color:#50fa7b">mutate</span>(filename <span style="color:#ff79c6">=</span> flnm)
+}
+
+<span style="color:#6272a4"># Using some functional programming from Purrr read in all those CSVs with the</span>
+<span style="color:#6272a4"># above function</span>
+dfs <span style="color:#ff79c6">&lt;-</span> <span style="color:#50fa7b">list.files</span>(pattern <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;*.csv&#34;</span>, full.names <span style="color:#ff79c6">=</span> F) <span style="color:#ff79c6">%&gt;%</span> 
+    <span style="color:#50fa7b">map_df</span>(<span style="color:#ff79c6">~</span><span style="color:#50fa7b">read_plus</span>(.))
+
+<span style="color:#6272a4"># If your file name has _ in it, these will be removed</span>
+dfs<span style="color:#ff79c6">$</span>filename <span style="color:#ff79c6">&lt;-</span> <span style="color:#50fa7b">gsub</span>(<span style="color:#f1fa8c">&#34;_&#34;</span>,<span style="color:#f1fa8c">&#34; &#34;</span>, dfs<span style="color:#ff79c6">$</span>filename)
+<span style="color:#6272a4"># As will the .csv suffix</span>
+dfs<span style="color:#ff79c6">$</span>filename <span style="color:#ff79c6">&lt;-</span> <span style="color:#50fa7b">gsub</span>(<span style="color:#f1fa8c">&#34;*.csv&#34;</span>,<span style="color:#f1fa8c">&#34;&#34;</span>, dfs<span style="color:#ff79c6">$</span>filename)
+
+<span style="color:#6272a4"># With a slight reshape of the data we can plot and facet</span>
+<span style="color:#6272a4"># The facet titles should correspond to the file names. </span>
+dfs <span style="color:#ff79c6">%&gt;%</span> 
+  <span style="color:#50fa7b">gather</span>(type,frequency,<span style="color:#ff79c6">-</span>Differences,<span style="color:#ff79c6">-</span>filename) <span style="color:#ff79c6">%&gt;%</span> 
+  <span style="color:#50fa7b">ggplot</span>(<span style="color:#50fa7b">aes</span>(x <span style="color:#ff79c6">=</span> Differences, y <span style="color:#ff79c6">=</span> frequency, col<span style="color:#ff79c6">=</span> type))<span style="color:#ff79c6">+</span>
+  <span style="color:#50fa7b">geom_line</span>(size<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1.5</span>)<span style="color:#ff79c6">+</span>
+  <span style="color:#50fa7b">scale_color_grey</span>()<span style="color:#ff79c6">+</span>
+  <span style="color:#50fa7b">theme_classic</span>() <span style="color:#ff79c6">+</span>
+  <span style="color:#50fa7b">labs</span>(x <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Number of Differences&#39;</span>,
+       y <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Frequency&#39;</span>,
+       title <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Mismatch Distributions&#39;</span>)<span style="color:#ff79c6">+</span>
+  <span style="color:#50fa7b">facet_wrap</span>(<span style="color:#ff79c6">~</span>filename,nrow <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span>,scales <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;free_y&#39;</span>)
+ 
+<span style="color:#50fa7b">ggsave</span>(filename <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;My_MM.png&#39;</span>,device <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;png&#39;</span>)
+</code></pre></div>
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

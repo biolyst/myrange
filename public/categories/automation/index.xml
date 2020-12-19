@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Automation on Productive Procastination</title>
+    <link>https://biolysthome.netlify.app/categories/automation/</link>
+    <description>Recent content in Automation on Productive Procastination</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 19 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://biolysthome.netlify.app/categories/automation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R Script Automation on Windows </title>
+      <link>https://biolysthome.netlify.app/post/2020-12-19-r-script-automation-on-windows/</link>
+      <pubDate>Sat, 19 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://biolysthome.netlify.app/post/2020-12-19-r-script-automation-on-windows/</guid>
+      <description>Automation made simple Automation of R scripts is an incredibly powerful tool to have at your disposal. In its simplest form, the ease by which you can automate an R script is almost laughable.
+You do not need much to start. You will need an R script of your choice, here I give a fun yet largely useless example. You will need a text editor (notepad will do fine) to create your batch file.</description>
+    </item>
+    
+  </channel>
+</rss>
